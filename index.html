@@ -11,18 +11,18 @@
   <meta name="author" content="VideoSaver">
   <meta name="robots" content="index, follow">
   <meta name="google-site-verification" content="google69f03f5847b01a1d" />
-  <link rel="canonical" href="https://khongten124.github.io/videosaver-web/">
+  <link rel="canonical" href="https://videosaver-web.vercel.app/">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://khongten124.github.io/videosaver-web/">
+  <meta property="og:url" content="https://videosaver-web.vercel.app/">
   <meta property="og:title" content="VideoSaver - Tải Video TikTok, Douyin Không Logo Chuẩn HD Miễn Phí">
   <meta property="og:description" content="Dán link bóc tách ngay video TikTok, Douyin, Reels Full HD không watermark trong 2 giây. Hỗ trợ tách nhạc MP3 gốc miễn phí.">
   <meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&q=80">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://khongten124.github.io/videosaver-web/">
+  <meta property="twitter:url" content="https://videosaver-web.vercel.app/">
   <meta property="twitter:title" content="VideoSaver - Tải Video TikTok, Douyin Không Logo Miễn Phí">
   <meta property="twitter:description" content="Dán link bóc tách ngay video TikTok, Douyin, Reels Full HD không logo trong 2s.">
 
@@ -33,8 +33,8 @@
     "@graph": [
       {
         "@type": "WebApplication",
-        "@id": "https://khongten124.github.io/videosaver-web/#webapp",
-        "url": "https://khongten124.github.io/videosaver-web/",
+        "@id": "https://videosaver-web.vercel.app/#webapp",
+        "url": "https://videosaver-web.vercel.app/",
         "name": "VideoSaver - Video Downloader No Watermark",
         "applicationCategory": "MultimediaApplication",
         "operatingSystem": "All",
@@ -48,7 +48,7 @@
       },
       {
         "@type": "FAQPage",
-        "@id": "https://khongten124.github.io/videosaver-web/#faq",
+        "@id": "https://videosaver-web.vercel.app/#faq",
         "mainEntity": [
           {
             "@type": "Question",
@@ -68,18 +68,18 @@
           },
           {
             "@type": "Question",
-            "name": "Tôi có thể tách riêng file nhạc nền MP3 của video TikTok không?",
+            "name": "Tôi có thể chuyển VIP sang thiết bị khác (iPhone, Laptop) không?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Có. Sau khi bóc tách video, hệ thống cung cấp nút 'Tách Nhạc MP3 Gốc' để bạn tải riêng file âm thanh chất lượng cao 320kbps làm nhạc chuông hoặc edit video."
+              "text": "Có. Khi đăng ký VIP, bạn được cấp một mã VIP Key độc quyền (ví dụ: VIP-XXXX-XXXX). Khi sang thiết bị khác, bạn chỉ cần bấm nút 'Kích Hoạt VIP Key' và dán mã vào là xong ngay trong 1 giây."
             }
           },
           {
             "@type": "Question",
-            "name": "Công cụ có lưu lại video hoặc thông tin người dùng không?",
+            "name": "Tôi có thể tách riêng file nhạc nền MP3 của video TikTok không?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Không. VideoSaver là công cụ xử lý thời gian thực, không lưu trữ video người dùng tải và không thu thập bất kỳ dữ liệu cá nhân nào."
+              "text": "Có. Sau khi bóc tách video, hệ thống cung cấp nút 'Tách Nhạc MP3 Gốc' để bạn tải riêng file âm thanh chất lượng cao 320kbps làm nhạc chuông hoặc edit video."
             }
           }
         ]
@@ -121,7 +121,7 @@
 <body class="min-h-screen text-slate-100 flex flex-col justify-between selection:bg-blue-500 selection:text-white">
 
   <!-- Header -->
-  <header class="border-b border-white/5 bg-slate-950/40 backdrop-blur-md sticky top-0 z-50">
+  <header class="border-b border-white/5 bg-slate-950/40 backdrop-blur-md sticky top-0 z-40">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
       <div class="flex items-center space-x-3">
         <div class="w-10 h-10 rounded-xl animated-gradient flex items-center justify-center shadow-lg">
@@ -135,35 +135,41 @@
         </div>
       </div>
 
-      <div class="flex items-center gap-3">
-        <a href="#guide" class="text-xs sm:text-sm font-medium text-slate-300 hover:text-white transition-colors hidden sm:inline">Hướng dẫn</a>
-        <a href="#faq" class="text-xs sm:text-sm font-medium text-slate-300 hover:text-white transition-colors hidden sm:inline">Hỏi đáp</a>
-        <a href="https://t.me/builder1323_bot" target="_blank" class="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-xs sm:text-sm px-3.5 sm:px-4 py-2 rounded-xl shadow-md transition-all transform hover:scale-105">
-          <i class="fa-brands fa-telegram text-base sm:text-lg"></i>
-          <span>Bot Telegram VIP</span>
+      <!-- Header Action Buttons -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- VIP Key Status / Button -->
+        <button id="vipKeyBtn" onclick="openKeyModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold border border-amber-500/40 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 transition-all">
+          <i class="fa-solid fa-key"></i>
+          <span id="vipKeyBtnText">Nhập VIP Key</span>
+        </button>
+
+        <!-- Telegram Bot Link -->
+        <a href="https://t.me/builder1323_bot" target="_blank" class="flex items-center space-x-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-xs px-3.5 py-1.5 rounded-xl shadow-md transition-all transform hover:scale-105">
+          <i class="fa-brands fa-telegram text-sm"></i>
+          <span class="hidden sm:inline">Bot Telegram</span>
         </a>
       </div>
     </div>
   </header>
 
   <!-- Hero & Main Input Area -->
-  <main class="max-w-4xl mx-auto px-4 py-10 sm:py-16 w-full flex-1 flex flex-col items-center justify-center">
+  <main class="max-w-4xl mx-auto px-4 py-10 sm:py-14 w-full flex-1 flex flex-col items-center justify-center">
     
     <!-- Title & Badge -->
-    <div class="text-center space-y-4 max-w-2xl">
-      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-2">
+    <div class="text-center space-y-3.5 max-w-2xl">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider">
         <i class="fa-solid fa-bolt text-yellow-400"></i> Bóc tách video không logo siêu tốc
       </div>
       <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
         Tải Video <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">Không Watermark</span> Chuẩn HD
       </h1>
       <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
-        Công cụ trích xuất video TikTok, Douyin (TikTok TQ), Instagram Reels, Facebook, Kuaishou & YouTube Shorts không dính logo và ID. Miễn phí 100% - Không popup quảng cáo!
+        Công cụ trích xuất video TikTok, Douyin (TikTok TQ), Instagram Reels, Facebook, Kuaishou & YouTube Shorts không dính logo. Miễn phí 100% - Không popup quảng cáo!
       </p>
     </div>
 
     <!-- Input Card -->
-    <div class="w-full mt-8 sm:mt-10 glass-card p-4 sm:p-6 rounded-2xl glow-accent">
+    <div class="w-full mt-7 glass-card p-4 sm:p-6 rounded-2xl glow-accent">
       <form id="downloadForm" class="flex flex-col sm:flex-row gap-3">
         <div class="relative flex-1">
           <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
@@ -199,9 +205,9 @@
     </div>
 
     <!-- Dedicated VIP & Developer Pricing Banner (Above-The-Fold) -->
-    <div class="w-full mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+    <div class="w-full mt-7 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
       
-      <!-- VIP Membership Card -->
+      <!-- VIP Membership Card with On-Page Modal Trigger -->
       <div class="glass-card p-5 sm:p-6 rounded-2xl relative overflow-hidden border border-amber-500/30 bg-gradient-to-b from-amber-500/10 via-slate-900/60 to-slate-950 flex flex-col justify-between hover:border-amber-500/50 transition-all shadow-lg">
         <div class="absolute -top-10 -right-10 w-28 h-28 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
         <div>
@@ -210,7 +216,7 @@
               <i class="fa-solid fa-crown text-amber-300"></i> Gói VIP Cá Nhân
             </span>
             <span class="text-xs font-bold text-amber-300/90 bg-amber-950/60 px-2.5 py-0.5 rounded-md border border-amber-500/20">
-              Chỉ 49.000đ / tháng
+              49.000đ / tháng
             </span>
           </div>
 
@@ -218,33 +224,29 @@
             Nâng Cấp VIP Không Giới Hạn
           </h3>
           <p class="text-slate-400 text-xs leading-relaxed mb-4">
-            Dành cho nhà sáng tạo nội dung, editor video & dân làm TikTok Shop/Affiliate cần tải số lượng lớn mỗi ngày.
+            Thanh toán VietQR tại chỗ, cấp mã VIP Key dùng trên mọi thiết bị (iPhone, Android, Máy tính).
           </p>
 
           <ul class="space-y-2 text-xs text-slate-300 mb-6">
             <li class="flex items-start gap-2">
               <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
-              <span><strong>Tải KHÔNG GIỚI HẠN</strong> video mỗi ngày (không giới hạn quota).</span>
+              <span><strong>Tải KHÔNG GIỚI HẠN</strong> video mỗi ngày với tốc độ cao nhất.</span>
             </li>
             <li class="flex items-start gap-2">
               <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
-              <span><strong>Tốc độ ưu tiên cao nhất</strong>, bóc tách video HD 1080p / 2K chỉ 1-2s.</span>
+              <span><strong>Cấp mã VIP Key dùng đa thiết bị:</strong> Đổi điện thoại/máy tính chỉ cần dán mã Key là mở khóa lại ngay.</span>
             </li>
             <li class="flex items-start gap-2">
               <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
-              <span><strong>Dùng trực tiếp trên Telegram Bot:</strong> Lưu video tự động, thêm vào Group làm việc chung.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
-              <span>Tự động kích hoạt qua <strong>VietQR TPBank</strong> hoặc <strong>Crypto (USDT/SOL)</strong>.</span>
+              <span><strong>Thanh toán VietQR TPBank tại chỗ:</strong> Quét mã QR 5 phút, kích hoạt tự động không cần đổi ứng dụng.</span>
             </li>
           </ul>
         </div>
 
-        <a href="https://t.me/builder1323_bot" target="_blank" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-extrabold text-xs sm:text-sm text-center flex items-center justify-center gap-2 shadow-md transition-all transform active:scale-95">
-          <i class="fa-brands fa-telegram text-base"></i>
-          <span>Mở Bot @builder1323_bot Nâng VIP Ngay</span>
-        </a>
+        <button onclick="openPaymentModal()" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-extrabold text-xs sm:text-sm text-center flex items-center justify-center gap-2 shadow-md transition-all transform active:scale-95 cursor-pointer">
+          <i class="fa-solid fa-qrcode text-base"></i>
+          <span>Quét VietQR Nâng VIP Tại Chỗ (49k)</span>
+        </button>
       </div>
 
       <!-- Developer / RapidAPI Card -->
@@ -280,16 +282,12 @@
               <i class="fa-solid fa-circle-check text-blue-400 mt-0.5"></i>
               <span><strong>Gói ULTRA ($30/tháng):</strong> 50.000 requests/tháng cho hệ thống lớn.</span>
             </li>
-            <li class="flex items-start gap-2">
-              <i class="fa-solid fa-circle-check text-blue-400 mt-0.5"></i>
-              <span>Độ trễ siêu thấp (&lt;1s), JSON Schema chuẩn, hỗ trợ SDK Python, Node.js, PHP, cURL.</span>
-            </li>
           </ul>
         </div>
 
         <a href="https://rapidapi.com/khongten124/api/tiktok-douyin-video-downloader-hd" target="_blank" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-extrabold text-xs sm:text-sm text-center flex items-center justify-center gap-2 shadow-md transition-all transform active:scale-95">
           <i class="fa-solid fa-bolt text-yellow-300"></i>
-          <span>Xem Tài Liệu & Đăng Ký API Trên RapidAPI 👉</span>
+          <span>Đăng Ký API Trên RapidAPI 👉</span>
         </a>
       </div>
 
@@ -357,25 +355,25 @@
             </a>
           </div>
 
-          <!-- Telegram Bot Promotion Box -->
-          <div class="p-3.5 rounded-xl bg-gradient-to-r from-blue-900/40 to-indigo-900/40 border border-blue-500/30 flex items-center justify-between gap-3">
+          <!-- VIP Upsell Note -->
+          <div class="p-3.5 rounded-xl bg-gradient-to-r from-amber-950/40 to-orange-950/40 border border-amber-500/30 flex items-center justify-between gap-3">
             <div class="flex items-center gap-2.5 text-xs text-slate-300">
-              <i class="fa-brands fa-telegram text-2xl text-blue-400"></i>
+              <i class="fa-solid fa-crown text-2xl text-amber-400"></i>
               <div>
-                <strong class="text-white block font-semibold">Muốn tải hàng loạt & trong Group chat?</strong>
-                Dùng ngay Bot Telegram để tải không giới hạn!
+                <strong class="text-white block font-semibold">Tải hàng loạt & tốc độ ưu tiên cao nhất?</strong>
+                Kích hoạt VIP chỉ 49k dùng trên mọi thiết bị!
               </div>
             </div>
-            <a href="https://t.me/builder1323_bot" target="_blank" class="text-xs bg-blue-500 hover:bg-blue-400 text-white font-bold px-3 py-2 rounded-lg whitespace-nowrap shadow transition-all">
-              Mở Bot 👉
-            </a>
+            <button onclick="openPaymentModal()" class="text-xs bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-3 py-2 rounded-lg whitespace-nowrap shadow transition-all cursor-pointer">
+              Mua VIP 49k 👉
+            </button>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Supported Platforms Grid -->
-    <div class="w-full mt-14 sm:mt-20">
+    <div class="w-full mt-14 sm:mt-16">
       <h2 class="text-center text-xs font-bold uppercase tracking-widest text-slate-500 mb-6">
         Hỗ trợ tải video đa nền tảng
       </h2>
@@ -407,9 +405,208 @@
       </div>
     </div>
 
+    
+    <!-- Dedicated Section: Telegram Bot & VIP Privileges -->
+    <section id="telegram-vip" class="w-full mt-14 sm:mt-16 space-y-8">
+      
+      <!-- Part 1: Telegram Bot Feature Showcase -->
+      <div class="glass-card p-6 sm:p-8 rounded-3xl border border-blue-500/30 bg-gradient-to-br from-blue-900/30 via-slate-900/80 to-slate-950 relative overflow-hidden shadow-2xl">
+        <div class="absolute -top-16 -right-16 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="flex flex-col lg:flex-row items-center gap-8">
+          
+          <!-- Left: Text & Features -->
+          <div class="flex-1 space-y-4 text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-extrabold uppercase tracking-wide border border-blue-500/30">
+              <i class="fa-brands fa-telegram text-sm"></i> Telegram Micro-SaaS Bot
+            </div>
+            
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+              Tải Video Siêu Tốc Ngay Trong <span class="text-blue-400">Telegram Bot</span>
+            </h2>
+            
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Không cần mở trình duyệt mỗi lần cần tải! Bạn có thể dán link trực tiếp vào khung chat với bot <strong class="text-white">@builder1323_bot</strong> để nhận file video sạch không logo và âm thanh MP3 chỉ trong 2 giây.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              <div class="flex items-start gap-2.5 text-xs text-slate-300 bg-slate-950/50 p-3 rounded-xl border border-white/5">
+                <i class="fa-solid fa-users-viewfinder text-blue-400 text-base mt-0.5"></i>
+                <div>
+                  <strong class="text-white block font-semibold">Thêm Vào Group Chat</strong>
+                  Cho phép cả nhóm hoặc team làm video cùng tải chung không giới hạn.
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5 text-xs text-slate-300 bg-slate-950/50 p-3 rounded-xl border border-white/5">
+                <i class="fa-solid fa-cloud-arrow-up text-indigo-400 text-base mt-0.5"></i>
+                <div>
+                  <strong class="text-white block font-semibold">Lưu Trữ Đám Mây</strong>
+                  Video gửi trực tiếp trong Telegram, xem lại mọi lúc trên mọi thiết bị.
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5 text-xs text-slate-300 bg-slate-950/50 p-3 rounded-xl border border-white/5">
+                <i class="fa-solid fa-music text-purple-400 text-base mt-0.5"></i>
+                <div>
+                  <strong class="text-white block font-semibold">Tách Nhạc MP3 1 Chạm</strong>
+                  Tự động tách riêng file âm thanh nền 320kbps làm nhạc chuông/edit.
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2.5 text-xs text-slate-300 bg-slate-950/50 p-3 rounded-xl border border-white/5">
+                <i class="fa-solid fa-gift text-pink-400 text-base mt-0.5"></i>
+                <div>
+                  <strong class="text-white block font-semibold">Mời Bạn Tặng Quota</strong>
+                  Mỗi lượt mời bạn bè nhận ngay +3 lượt tải VIP miễn phí tự động.
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-3 flex flex-wrap items-center gap-3">
+              <a href="https://t.me/builder1323_bot" target="_blank" class="px-6 py-3 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-extrabold text-sm rounded-xl shadow-lg flex items-center gap-2 transition-all transform hover:scale-105 active:scale-95">
+                <i class="fa-brands fa-telegram text-lg"></i>
+                <span>Trải Nghiệm Bot @builder1323_bot 👉</span>
+              </a>
+              <span class="text-xs text-slate-400">Hoạt động 24/7 không nghỉ</span>
+            </div>
+          </div>
+
+          <!-- Right: Visual Badge / Mockup Card -->
+          <div class="w-full lg:w-72 glass-card p-5 rounded-2xl border border-white/10 bg-slate-950/80 space-y-4 text-center">
+            <div class="w-16 h-16 rounded-2xl animated-gradient flex items-center justify-center mx-auto text-2xl text-white shadow-xl">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+            <div>
+              <h4 class="font-extrabold text-white text-base">@builder1323_bot</h4>
+              <p class="text-xs text-blue-400 font-medium">Video Saver Assistant</p>
+            </div>
+            <div class="space-y-2 text-xs text-slate-400 text-left border-t border-white/5 pt-3">
+              <div class="flex items-center justify-between">
+                <span>Trạng thái:</span>
+                <span class="text-green-400 font-bold flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Online 24/7</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span>Độ trễ xử lý:</span>
+                <span class="text-white font-bold">&lt; 2 giây</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span>Nền tảng hỗ trợ:</span>
+                <span class="text-white font-bold">6 Nền tảng HD</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Part 2: VIP Privileges In-Depth Grid -->
+      <div class="glass-card p-6 sm:p-8 rounded-3xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 via-slate-900/90 to-slate-950 relative overflow-hidden shadow-2xl">
+        <div class="absolute -top-16 -left-16 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="text-center max-w-2xl mx-auto space-y-2 mb-8">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-xs font-extrabold uppercase tracking-wide border border-amber-500/30">
+            <i class="fa-solid fa-crown"></i> Đặc Quyền Hội Viên VIP
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
+            Vì Sao Bạn Nên Nâng Cấp <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-300 to-amber-400">Gói VIP 49k</span>?
+          </h2>
+          <p class="text-slate-400 text-xs sm:text-sm">
+            Được thiết kế riêng cho người làm nội dung chuyên nghiệp, agency, shop bán hàng và editor video.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 text-left">
+          
+          <!-- Privilege 1 -->
+          <div class="bg-slate-950/60 p-5 rounded-2xl border border-amber-500/20 space-y-3 hover:border-amber-500/40 transition-all">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg">
+              <i class="fa-solid fa-infinity"></i>
+            </div>
+            <h3 class="text-base font-bold text-white">Tải Không Giới Hạn Quota</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Xóa bỏ hoàn toàn giới hạn 5 lượt/ngày. Bạn có thể tải hàng trăm video mỗi ngày phục vụ việc reup, làm kênh affiliate hay lưu trữ tư liệu.
+            </p>
+          </div>
+
+          <!-- Privilege 2 -->
+          <div class="bg-slate-950/60 p-5 rounded-2xl border border-amber-500/20 space-y-3 hover:border-amber-500/40 transition-all">
+            <div class="w-10 h-10 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center text-lg">
+              <i class="fa-solid fa-bolt-lightning"></i>
+            </div>
+            <h3 class="text-base font-bold text-white">Băng Thông Ưu Tiên Cao Cấp</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Hệ thống định tuyến riêng cho thành viên VIP, đảm bảo tốc độ bóc tách video chuẩn Full HD 1080p / 2K siêu tốc ngay cả vào giờ cao điểm.
+            </p>
+          </div>
+
+          <!-- Privilege 3 -->
+          <div class="bg-slate-950/60 p-5 rounded-2xl border border-amber-500/20 space-y-3 hover:border-amber-500/40 transition-all">
+            <div class="w-10 h-10 rounded-xl bg-yellow-500/20 text-yellow-400 flex items-center justify-center text-lg">
+              <i class="fa-solid fa-key"></i>
+            </div>
+            <h3 class="text-base font-bold text-white">Mã VIP Key Đa Thiết Bị</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Mỗi gói VIP đi kèm mã VIP Key độc quyền. Bạn có thể kích hoạt dùng đồng thời trên cả iPhone, điện thoại Android, iPad và Máy tính cá nhân.
+            </p>
+          </div>
+
+          <!-- Privilege 4 -->
+          <div class="bg-slate-950/60 p-5 rounded-2xl border border-amber-500/20 space-y-3 hover:border-amber-500/40 transition-all">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg">
+              <i class="fa-solid fa-qrcode"></i>
+            </div>
+            <h3 class="text-base font-bold text-white">Kích Hoạt Tự Động 100%</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Thanh toán tiện lợi qua mã VietQR TPBank chuẩn NAPAS hoặc nạp Crypto (USDT/SOL). Tiền vào tài khoản là VIP mở ngay sau 2 giây.
+            </p>
+          </div>
+
+          <!-- Privilege 5 -->
+          <div class="bg-slate-950/60 p-5 rounded-2xl border border-amber-500/20 space-y-3 hover:border-amber-500/40 transition-all">
+            <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-lg">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <h3 class="text-base font-bold text-white">Hỗ Trợ Kỹ Thuật Ưu Tiên 24/7</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Kênh hỗ trợ Ticket ẩn danh 2 chiều trực tiếp trong bot. Mọi sự cố về link hỏng hoặc video lỗi vùng đều được kỹ thuật viên xử lý ngay.
+            </p>
+          </div>
+
+          <!-- Privilege 6 -->
+          <div class="bg-slate-950/60 p-5 rounded-2xl border border-amber-500/20 space-y-3 hover:border-amber-500/40 transition-all">
+            <div class="w-10 h-10 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center text-lg">
+              <i class="fa-solid fa-tags"></i>
+            </div>
+            <h3 class="text-base font-bold text-white">Tiết Kiệm Tới 40% Gói Năm</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Gói 1 tháng chỉ <strong class="text-amber-300">49.000 VNĐ</strong>. Đặc biệt gói 1 năm chỉ <strong class="text-amber-300">399.000 VNĐ</strong> (tương đương ~33k/tháng) sử dụng không giới hạn 365 ngày.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Call to Action Banner inside VIP -->
+        <div class="mt-8 pt-6 border-t border-amber-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="text-left space-y-1">
+            <h4 class="font-bold text-white text-sm sm:text-base">Sẵn sàng trải nghiệm tốc độ không giới hạn?</h4>
+            <p class="text-xs text-slate-400">Nâng cấp trực tiếp trên web bằng VietQR hoặc dùng qua Bot Telegram.</p>
+          </div>
+          <div class="flex items-center gap-3 w-full sm:w-auto">
+            <button onclick="openPaymentModal()" class="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-extrabold text-xs sm:text-sm rounded-xl shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-all transform hover:scale-105 active:scale-95">
+              <i class="fa-solid fa-crown text-slate-950"></i>
+              <span>Nâng Cấp VIP Ngay (49k)</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
     <!-- SEO Content: Comprehensive User Guide -->
-    <section id="guide" class="w-full mt-16 space-y-6 text-left">
-      <div class="border-t border-white/10 pt-10">
+    <section id="guide" class="w-full mt-14 space-y-6 text-left">
+      <div class="border-t border-white/10 pt-8">
         <h2 class="text-2xl font-bold text-white mb-4">
           Hướng dẫn cách tải video TikTok & Douyin không logo Full HD
         </h2>
@@ -439,8 +636,8 @@
       </div>
     </section>
 
-    <!-- FAQ Section with Google Rich Snippet support -->
-    <section id="faq" class="w-full mt-14 space-y-4">
+    <!-- FAQ Section -->
+    <section id="faq" class="w-full mt-12 space-y-4">
       <h2 class="text-2xl font-bold text-white text-center mb-6">Câu hỏi thường gặp (FAQ)</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-slate-400">
         <div class="glass-card p-5 rounded-xl space-y-2">
@@ -451,21 +648,21 @@
         </div>
         <div class="glass-card p-5 rounded-xl space-y-2">
           <h3 class="font-bold text-white flex items-center gap-2">
-            <i class="fa-solid fa-circle-question text-purple-400"></i> Có thể tải video Douyin (TikTok Trung Quốc) trên iPhone không?
+            <i class="fa-solid fa-circle-question text-amber-400"></i> Khi đổi điện thoại hoặc máy tính, VIP có bị mất không?
           </h3>
-          <p>Có. Bạn chỉ cần dùng trình duyệt Safari trên iPhone hoặc Chrome/Safari trên Android để truy cập trang web và tải về album ảnh trực tiếp.</p>
+          <p>Không hề mất. Bạn chỉ cần bấm nút "Nhập VIP Key" ở góc trên màn hình và dán mã VIP Key đã lưu vào là mọi quyền lợi VIP được khôi phục ngay lập tức.</p>
         </div>
         <div class="glass-card p-5 rounded-xl space-y-2">
           <h3 class="font-bold text-white flex items-center gap-2">
-            <i class="fa-solid fa-circle-question text-emerald-400"></i> Tôi có cần cài đặt phần mềm nào không?
+            <i class="fa-solid fa-circle-question text-emerald-400"></i> Có thể tải video Douyin (TikTok Trung Quốc) trên iPhone không?
           </h3>
-          <p>Hoàn toàn không cần cài đặt. Toàn bộ quá trình diễn ra trực tuyến trên trình duyệt hoặc thông qua Telegram Bot.</p>
+          <p>Có. Bạn chỉ cần dùng trình duyệt Safari trên iPhone hoặc Chrome trên Android để truy cập trang web và tải về album ảnh trực tiếp.</p>
         </div>
         <div class="glass-card p-5 rounded-xl space-y-2">
           <h3 class="font-bold text-white flex items-center gap-2">
-            <i class="fa-solid fa-circle-question text-yellow-400"></i> Vì sao nên dùng thêm Telegram Bot @builder1323_bot?
+            <i class="fa-solid fa-circle-question text-purple-400"></i> Tôi là lập trình viên muốn mua API thì làm sao?
           </h3>
-          <p>Telegram Bot cho phép bạn tải video trực tiếp trong khung chat, lưu trữ video tự động và có thể thêm vào Group làm video để cả nhóm cùng dùng.</p>
+          <p>Bạn có thể bấm vào khung "API Cho Developer" để đăng ký các gói từ $10/tháng trên sàn quốc tế RapidAPI với đầy đủ tài liệu SDK.</p>
         </div>
       </div>
     </section>
@@ -480,12 +677,333 @@
         <a href="#guide" class="hover:text-blue-400 transition-colors">Hướng Dẫn</a>
         <a href="#faq" class="hover:text-blue-400 transition-colors">FAQ</a>
         <a href="https://t.me/builder1323_bot" target="_blank" class="hover:text-blue-400 transition-colors">Telegram Bot VIP</a>
+        <a href="https://rapidapi.com/khongten124/api/tiktok-douyin-video-downloader-hd" target="_blank" class="hover:text-blue-400 transition-colors">RapidAPI</a>
       </div>
     </div>
   </footer>
 
-  <!-- Frontend Logic: Hybrid Web API + Direct Client Extractor -->
+  <!-- ================= MODALS ================= -->
+
+  <!-- Modal 1: On-Page VietQR Payment Modal (5-Minute Countdown) -->
+  <div id="paymentModal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="glass-card max-w-md w-full p-6 rounded-3xl border border-amber-500/40 shadow-2xl relative space-y-5 animate-fade-in bg-slate-900">
+      
+      <!-- Close Button -->
+      <button onclick="closePaymentModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-full text-lg cursor-pointer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center space-y-1">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold uppercase">
+          <i class="fa-solid fa-crown"></i> Thanh Toán VIP 1 Tháng
+        </span>
+        <h3 class="text-xl font-bold text-white">Quét VietQR Tự Động</h3>
+        <p class="text-xs text-slate-400">Mở app ngân hàng quét mã để nhận mã VIP Key tức thì</p>
+      </div>
+
+      <!-- QR Box -->
+      <div class="flex flex-col items-center justify-center bg-white p-4 rounded-2xl shadow-inner">
+        <img id="qrImage" src="" alt="VietQR TPBank" class="w-48 h-48 sm:w-52 sm:h-52 object-contain" />
+        <div class="mt-2 text-slate-900 font-extrabold text-sm flex items-center gap-1">
+          <span>Số tiền:</span> <span class="text-red-600">49.000 VNĐ</span>
+        </div>
+      </div>
+
+      <!-- Bank Details -->
+      <div class="bg-slate-950/60 p-3.5 rounded-xl border border-white/5 text-xs space-y-1.5">
+        <div class="flex justify-between">
+          <span class="text-slate-400">Ngân hàng:</span>
+          <span class="font-bold text-white">TPBank (Tiên Phong)</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-400">Số tài khoản:</span>
+          <span class="font-bold text-amber-300 font-mono text-sm">00004362479</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-400">Chủ tài khoản:</span>
+          <span class="font-bold text-white">TONG DUC HONG ANH</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-400">Nội dung CK:</span>
+          <span id="qrOrderCode" class="font-bold text-amber-400 font-mono text-sm bg-amber-500/10 px-2 py-0.5 rounded">VIP...</span>
+        </div>
+        <div class="flex justify-between pt-1 border-t border-white/5">
+          <span class="text-slate-400">Thời hạn mã:</span>
+          <span id="qrCountdown" class="font-bold text-red-400">05:00</span>
+        </div>
+      </div>
+
+      <!-- Claim / Confirmation Action -->
+      <div class="space-y-2">
+        <button onclick="claimVipKey()" id="claimKeyBtn" class="w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-extrabold text-sm rounded-xl shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-all">
+          <i class="fa-solid fa-check-circle"></i>
+          <span>Tôi Đã Chuyển Khoản ➔ Lấy VIP Key</span>
+        </button>
+
+        <button onclick="refreshOrder()" class="w-full py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs rounded-xl flex items-center justify-center gap-1.5 cursor-pointer transition-all">
+          <i class="fa-solid fa-rotate"></i>
+          <span>Tạo Lại Mã QR Mới</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal 2: VIP Key Activation & Restore Modal -->
+  <div id="keyModal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="glass-card max-w-md w-full p-6 rounded-3xl border border-amber-500/40 shadow-2xl relative space-y-5 animate-fade-in bg-slate-900">
+      
+      <button onclick="closeKeyModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-full text-lg cursor-pointer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center space-y-1">
+        <div class="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center mx-auto text-xl mb-2">
+          <i class="fa-solid fa-key"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white">Kích Hoạt Mã VIP Key</h3>
+        <p class="text-xs text-slate-400">Dán mã VIP Key bạn đã mua để mở khóa không giới hạn trên thiết bị này</p>
+      </div>
+
+      <!-- Input Form -->
+      <div class="space-y-3">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Mã VIP Key của bạn:</label>
+          <input 
+            type="text" 
+            id="inputVipKey" 
+            placeholder="Ví dụ: VIP-8F92-K4A1-..." 
+            class="w-full px-4 py-3 bg-slate-950 border border-white/10 rounded-xl text-amber-300 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+          />
+        </div>
+
+        <button onclick="submitVipKey()" id="submitKeyBtn" class="w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-extrabold text-sm rounded-xl shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-all">
+          <i class="fa-solid fa-unlock"></i>
+          <span>Kích Hoạt Trên Thiết Bị Này</span>
+        </button>
+
+        <div id="keyStatusMsg" class="hidden p-3 rounded-xl text-xs text-center"></div>
+      </div>
+
+      <div class="pt-2 border-t border-white/5 text-center text-xs text-slate-400">
+        Chưa có mã VIP? <a href="javascript:void(0)" onclick="closeKeyModal(); openPaymentModal();" class="text-amber-400 font-bold hover:underline">Quét VietQR mua ngay chỉ 49k</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal 3: Success VIP Key Display Modal -->
+  <div id="successKeyModal" class="hidden fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="glass-card max-w-md w-full p-6 rounded-3xl border border-green-500/40 shadow-2xl relative space-y-5 animate-fade-in bg-slate-900 text-center">
+      
+      <div class="w-14 h-14 rounded-full bg-green-500/20 border border-green-500/40 text-green-400 flex items-center justify-center mx-auto text-2xl">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+
+      <div class="space-y-1">
+        <h3 class="text-xl font-extrabold text-white">Nâng Cấp VIP Thành Công!</h3>
+        <p class="text-xs text-slate-300">Dưới đây là mã VIP Key độc quyền của bạn (đã tự động kích hoạt):</p>
+      </div>
+
+      <!-- Key Box -->
+      <div class="p-4 bg-slate-950 rounded-2xl border border-amber-500/40 space-y-2">
+        <div id="displayKeyText" class="font-mono text-sm sm:text-base font-bold text-amber-300 break-all select-all">
+          VIP-XXXX-XXXX-...
+        </div>
+        <button onclick="copyGeneratedKey()" id="copyKeyBtn" class="w-full py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 transition-colors cursor-pointer">
+          <i class="fa-regular fa-copy"></i>
+          <span id="copyKeyBtnText">Sao Chép Mã Key</span>
+        </button>
+      </div>
+
+      <p class="text-[11px] text-slate-400 leading-relaxed">
+        💡 <strong>Mẹo:</strong> Hãy lưu lại mã Key này. Khi đổi sang điện thoại hoặc máy tính khác, bạn chỉ cần dán mã vào để dùng tiếp nhé!
+      </p>
+
+      <button onclick="closeSuccessModal()" class="w-full py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white font-extrabold text-sm rounded-xl shadow-lg cursor-pointer">
+        Bắt Đầu Sử Dụng Ngay
+      </button>
+
+    </div>
+  </div>
+
+  <!-- JavaScript Logic -->
   <script>
+    let currentOrderCode = '';
+    let countdownInterval = null;
+
+    // Load VIP State from LocalStorage on Startup
+    document.addEventListener('DOMContentLoaded', () => {
+      checkStoredVipKey();
+    });
+
+    async function checkStoredVipKey() {
+      const storedKey = localStorage.getItem('videosaver_vip_key');
+      if (storedKey) {
+        try {
+          const res = await fetch('/api/order?action=verify-key', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ vipKey: storedKey })
+          });
+          const data = await res.json();
+          if (data && data.valid) {
+            document.getElementById('vipKeyBtnText').innerHTML = `⭐ VIP (${data.daysLeft} ngày)`;
+            document.getElementById('vipKeyBtn').classList.remove('bg-amber-500/10', 'text-amber-300');
+            document.getElementById('vipKeyBtn').classList.add('bg-green-500/20', 'text-green-300', 'border-green-500/40');
+          } else {
+            localStorage.removeItem('videosaver_vip_key');
+          }
+        } catch(e) {}
+      }
+    }
+
+    // Modal Control Functions
+    function openPaymentModal() {
+      document.getElementById('paymentModal').classList.remove('hidden');
+      refreshOrder();
+    }
+
+    function closePaymentModal() {
+      document.getElementById('paymentModal').classList.add('hidden');
+      if (countdownInterval) clearInterval(countdownInterval);
+    }
+
+    function openKeyModal() {
+      const storedKey = localStorage.getItem('videosaver_vip_key');
+      if (storedKey) {
+        document.getElementById('inputVipKey').value = storedKey;
+      }
+      document.getElementById('keyStatusMsg').classList.add('hidden');
+      document.getElementById('keyModal').classList.remove('hidden');
+    }
+
+    function closeKeyModal() {
+      document.getElementById('keyModal').classList.add('hidden');
+    }
+
+    function closeSuccessModal() {
+      document.getElementById('successKeyModal').classList.add('hidden');
+      checkStoredVipKey();
+    }
+
+    // Order Creation & Countdown
+    async function refreshOrder() {
+      if (countdownInterval) clearInterval(countdownInterval);
+      document.getElementById('qrImage').src = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200&q=80';
+      document.getElementById('qrOrderCode').textContent = 'Đang tạo...';
+
+      try {
+        const res = await fetch('/api/order?action=create', { method: 'POST' });
+        const data = await res.json();
+        if (data && data.success) {
+          currentOrderCode = data.orderCode;
+          document.getElementById('qrImage').src = data.qrUrl;
+          document.getElementById('qrOrderCode').textContent = data.orderCode;
+          startCountdown(5 * 60);
+        }
+      } catch (err) {
+        alert('Lỗi tạo mã đơn hàng. Vui lòng thử lại!');
+      }
+    }
+
+    function startCountdown(durationSeconds) {
+      let remaining = durationSeconds;
+      const display = document.getElementById('qrCountdown');
+      
+      const updateDisplay = () => {
+        const m = Math.floor(remaining / 60);
+        const s = remaining % 60;
+        display.textContent = `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+        if (remaining <= 0) {
+          clearInterval(countdownInterval);
+          display.textContent = 'Đã hết hạn';
+        }
+        remaining--;
+      };
+
+      updateDisplay();
+      countdownInterval = setInterval(updateDisplay, 1000);
+    }
+
+    // Claim VIP Key after Payment
+    async function claimVipKey() {
+      if (!currentOrderCode) return;
+      const btn = document.getElementById('claimKeyBtn');
+      btn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Đang kích hoạt...';
+
+      try {
+        const res = await fetch('/api/order?action=claim-key', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ orderCode: currentOrderCode })
+        });
+        const data = await res.json();
+        btn.innerHTML = '<i class="fa-solid fa-check-circle"></i> <span>Tôi Đã Chuyển Khoản ➔ Lấy VIP Key</span>';
+
+        if (data && data.success) {
+          localStorage.setItem('videosaver_vip_key', data.vipKey);
+          closePaymentModal();
+          document.getElementById('displayKeyText').textContent = data.vipKey;
+          document.getElementById('successKeyModal').classList.remove('hidden');
+        } else {
+          alert(data.error || 'Chưa nhận được thanh toán. Vui lòng đợi 10-20s rồi thử lại!');
+        }
+      } catch (err) {
+        btn.innerHTML = '<i class="fa-solid fa-check-circle"></i> <span>Tôi Đã Chuyển Khoản ➔ Lấy VIP Key</span>';
+        alert('Lỗi kết nối. Vui lòng thử lại!');
+      }
+    }
+
+    // Submit / Restore VIP Key from Input
+    async function submitVipKey() {
+      const key = document.getElementById('inputVipKey').value.trim();
+      const statusMsg = document.getElementById('keyStatusMsg');
+      const btn = document.getElementById('submitKeyBtn');
+
+      if (!key) return;
+      btn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Đang kiểm tra...';
+      statusMsg.classList.add('hidden');
+
+      try {
+        const res = await fetch('/api/order?action=verify-key', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ vipKey: key })
+        });
+        const data = await res.json();
+        btn.innerHTML = '<i class="fa-solid fa-unlock"></i> <span>Kích Hoạt Trên Thiết Bị Này</span>';
+
+        if (data && data.valid) {
+          localStorage.setItem('videosaver_vip_key', key);
+          statusMsg.className = 'p-3 rounded-xl text-xs text-center bg-green-500/20 border border-green-500/40 text-green-300 block';
+          statusMsg.textContent = `🎉 Kích hoạt thành công! VIP còn lại: ${data.daysLeft} ngày.`;
+          setTimeout(() => {
+            closeKeyModal();
+            checkStoredVipKey();
+          }, 1500);
+        } else {
+          statusMsg.className = 'p-3 rounded-xl text-xs text-center bg-red-500/20 border border-red-500/40 text-red-300 block';
+          statusMsg.textContent = data.error || 'Mã VIP Key không hợp lệ hoặc đã hết hạn!';
+        }
+      } catch (err) {
+        btn.innerHTML = '<i class="fa-solid fa-unlock"></i> <span>Kích Hoạt Trên Thiết Bị Này</span>';
+        statusMsg.className = 'p-3 rounded-xl text-xs text-center bg-red-500/20 border border-red-500/40 text-red-300 block';
+        statusMsg.textContent = 'Lỗi kết nối máy chủ. Vui lòng thử lại!';
+      }
+    }
+
+    function copyGeneratedKey() {
+      const keyText = document.getElementById('displayKeyText').textContent.trim();
+      navigator.clipboard.writeText(keyText).then(() => {
+        document.getElementById('copyKeyBtnText').textContent = '✓ Đã Sao Chép!';
+        setTimeout(() => {
+          document.getElementById('copyKeyBtnText').textContent = 'Sao Chép Mã Key';
+        }, 2000);
+      });
+    }
+
+    // Video Download Form Handler
     const form = document.getElementById('downloadForm');
     const urlInput = document.getElementById('videoUrl');
     const pasteBtn = document.getElementById('pasteBtn');
@@ -494,7 +1012,6 @@
     const errorMessage = document.getElementById('errorMessage');
     const resultCard = document.getElementById('resultCard');
 
-    // UI elements for result
     const resCover = document.getElementById('resCover');
     const resPlatform = document.getElementById('resPlatform');
     const resAuthor = document.getElementById('resAuthor');
@@ -502,7 +1019,6 @@
     const resDownloadVideo = document.getElementById('resDownloadVideo');
     const resDownloadAudio = document.getElementById('resDownloadAudio');
 
-    // Fast Paste from Clipboard
     pasteBtn.addEventListener('click', async () => {
       try {
         const text = await navigator.clipboard.readText();
@@ -515,7 +1031,6 @@
       }
     });
 
-    // Form Submission
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const url = urlInput.value.trim();
@@ -560,9 +1075,7 @@
           resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
           return;
         }
-      } catch (clientErr) {
-        console.warn('Direct client extractor error, trying fallback:', clientErr);
-      }
+      } catch (clientErr) {}
 
       // 2. Fallback to API endpoint
       try {
@@ -594,12 +1107,12 @@
           return;
         }
 
-        errorMessage.textContent = (serverData && serverData.error) || 'Không thể bóc tách video từ link này. Vui lòng thử lại hoặc mở Telegram Bot!';
+        errorMessage.textContent = (serverData && serverData.error) || 'Không thể bóc tách video từ link này. Vui lòng thử lại!';
         errorAlert.classList.remove('hidden');
 
       } catch (finalErr) {
         loadingState.classList.add('hidden');
-        errorMessage.textContent = 'Không thể tải video từ link này. Bạn có thể mở Bot Telegram @builder1323_bot để tải trực tiếp nhé!';
+        errorMessage.textContent = 'Không thể tải video từ link này. Vui lòng kiểm tra lại link công khai!';
         errorAlert.classList.remove('hidden');
       }
     });
