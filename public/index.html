@@ -49,28 +49,51 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: radial-gradient(circle at top, #181c2e 0%, #0c0e17 100%);
+    @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap');
+    
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
+
+    body {
+      font-family: 'Be Vietnam Pro', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: radial-gradient(circle at top, #13172b 0%, #080a12 100%);
+      letter-spacing: -0.01em;
+    }
+
     .glass-card {
-      background: rgba(25, 30, 50, 0.7);
-      backdrop-filter: blur(16px);
+      background: rgba(18, 22, 40, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
+
     .glow-accent {
-      box-shadow: 0 0 35px -5px rgba(59, 130, 246, 0.4);
+      box-shadow: 0 0 40px -8px rgba(59, 130, 246, 0.35);
     }
+
     .animated-gradient {
       background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
       background-size: 200% 200%;
       animation: gradientMove 6s ease infinite;
     }
+
     @keyframes gradientMove {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
+    }
+
+    .flag-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: inline-block;
+      vertical-align: middle;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      flex-shrink: 0;
     }
   </style>
 </head>
@@ -95,7 +118,7 @@
       <div class="flex items-center gap-2 sm:gap-3">
         <!-- Language Switcher Toggle -->
         <button id="langToggleBtn" onclick="toggleLanguage()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-bold border border-white/15 bg-slate-900/80 text-slate-200 hover:border-blue-400/50 hover:text-white transition-all cursor-pointer shadow-sm">
-          <span id="langFlag">🇻🇳</span>
+          <span id="langFlag" class="flex items-center"><svg class="flag-icon" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#da251d"/><path fill="#ff0" d="M256 100l48.2 148.3H460l-126.8 92.2 48.4 148.9L256 397.2 130.4 489.4l48.4-148.9L52 248.3h155.8z"/></svg></span>
           <span id="langText">VI</span>
           <i class="fa-solid fa-chevron-down text-[9px] text-slate-400"></i>
         </button>
@@ -711,7 +734,7 @@
     // Bilingual Dictionary (VI & EN)
     const translations = {
       vi: {
-        flag: "🇻🇳",
+        flag: '<svg class=\"flag-icon\" viewBox=\"0 0 512 512\"><circle cx=\"256\" cy=\"256\" r=\"256\" fill=\"#da251d\"/><path fill=\"#ff0\" d=\"M256 100l48.2 148.3H460l-126.8 92.2 48.4 148.9L256 397.2 130.4 489.4l48.4-148.9L52 248.3h155.8z\"/></svg>',
         langLabel: "VI",
         header_vip_key: "Nhập VIP Key",
         header_bot: "Bot Telegram",
@@ -813,7 +836,7 @@
         succ_close_btn: "Bắt Đầu Sử Dụng Ngay"
       },
       en: {
-        flag: "🇬🇧",
+        flag: '<svg class=\"flag-icon\" viewBox=\"0 0 512 512\"><clipPath id=\"en-clip\"><circle cx=\"256\" cy=\"256\" r=\"256\"/></clipPath><g clip-path=\"url(#en-clip)\"><path fill=\"#012169\" d=\"M0 0h512v512H0z\"/><path fill=\"#FFF\" d=\"M512 0v64L320 256l192 192v64h-64L256 320 64 512H0v-64l192-192L0 64V0h64l192 192L448 0z\"/><path fill=\"#C8102E\" d=\"M307 205L512 0h-48L283 181zm-102 102L0 512h48l181-181zM0 0l205 205h-48L0 48zm512 512L307 307h48l157 157z\"/><path fill=\"#FFF\" d=\"M171 0h170v512H171zM0 171h512v170H0z\"/><path fill=\"#C8102E\" d=\"M205 0h102v512H205zM0 205h512v102H0z\"/></g></svg>',
         langLabel: "EN",
         header_vip_key: "Enter VIP Key",
         header_bot: "Telegram Bot",
@@ -948,7 +971,7 @@
       const t = translations[lang] || translations.vi;
 
       // Update flag & toggle button
-      document.getElementById('langFlag').textContent = t.flag;
+      document.getElementById('langFlag').innerHTML = t.flag;
       document.getElementById('langText').textContent = t.langLabel;
 
       // Update all elements with data-i18n
