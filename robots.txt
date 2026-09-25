@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://khongten124.github.io/videosaver-web/sitemap.xml
+Sitemap: https://videosaver-web.vercel.app/sitemap.xml
