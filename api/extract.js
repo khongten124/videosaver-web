@@ -8,8 +8,7 @@ module.exports = async (req, res) => {
   );
 
   if (req.method === "OPTIONS") {
-    res.status(200).end();
-    return;
+    return res.status(200).end();
   }
 
   if (req.method === "GET") {
