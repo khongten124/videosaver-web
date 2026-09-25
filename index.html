@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VideoSaver - Tải Video TikTok, Douyin Không Logo Miễn Phí 100%</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Công cụ tải video TikTok, Douyin (TikTok Trung Quốc), Instagram Reels, Facebook, Kuaishou không logo chất lượng Full HD 1080p miễn phí 100%. Tách nhạc MP3 siêu tốc.">
+  <meta name="keywords" content="tải video tiktok không logo, douyin downloader no watermark, download video reels, tai video douyin, video saver bot, tach nhac tiktok mp3, tai video khong watermark">
+  <meta name="author" content="VideoSaver">
+  <meta property="og:title" content="VideoSaver - Tải Video TikTok, Douyin Không Logo Miễn Phí">
+  <meta property="og:description" content="Dán link tải ngay video Full HD không logo trong 2s. Không quảng cáo rác, hỗ trợ TikTok, Douyin, Reels, Kuaishou.">
+  <meta property="og:type" content="website">
+
+  <!-- Tailwind CSS CDN & FontAwesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: radial-gradient(circle at top, #181c2e 0%, #0c0e17 100%);
+    }
+    .glass-card {
+      background: rgba(25, 30, 50, 0.7);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glow-accent {
+      box-shadow: 0 0 35px -5px rgba(59, 130, 246, 0.4);
+    }
+    .animated-gradient {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+      background-size: 200% 200%;
+      animation: gradientMove 6s ease infinite;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
+</head>
+<body class="min-h-screen text-slate-100 flex flex-col justify-between selection:bg-blue-500 selection:text-white">
+
+  <!-- Header -->
+  <header class="border-b border-white/5 bg-slate-950/40 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl animated-gradient flex items-center justify-center shadow-lg">
+          <i class="fa-solid fa-cloud-arrow-down text-white text-xl"></i>
+        </div>
+        <div>
+          <span class="text-xl font-extrabold tracking-tight text-white flex items-center gap-2">
+            Video<span class="text-blue-400">Saver</span>
+            <span class="text-xs bg-blue-500/20 text-blue-400 font-semibold px-2 py-0.5 rounded-full border border-blue-500/30">HD 4K</span>
+          </span>
+        </div>
+      </div>
+
+      <a href="https://t.me/builder1323_bot" target="_blank" class="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition-all transform hover:scale-105">
+        <i class="fa-brands fa-telegram text-lg"></i>
+        <span class="hidden sm:inline">Mở Bot Telegram VIP</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero & Main Input Area -->
+  <main class="max-w-4xl mx-auto px-4 py-10 sm:py-16 w-full flex-1 flex flex-col items-center justify-center">
+    
+    <!-- Title & Badge -->
+    <div class="text-center space-y-4 max-w-2xl">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-2">
+        <i class="fa-solid fa-bolt text-yellow-400"></i> Bóc tách video không logo siêu tốc
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+        Tải Video <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">Không Logo</span> Chuẩn HD
+      </h1>
+      <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+        Hỗ trợ TikTok, Douyin (TikTok TQ), Instagram Reels, Facebook, Kuaishou & YouTube Shorts. Miễn phí 100% - Không quảng cáo rác!
+      </p>
+    </div>
+
+    <!-- Input Card -->
+    <div class="w-full mt-8 sm:mt-10 glass-card p-4 sm:p-6 rounded-2xl glow-accent">
+      <form id="downloadForm" class="flex flex-col sm:flex-row gap-3">
+        <div class="relative flex-1">
+          <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+            <i class="fa-solid fa-link"></i>
+          </div>
+          <input 
+            type="url" 
+            id="videoUrl" 
+            placeholder="Dán đường link video (TikTok, Douyin, Reels, Shorts...) vào đây..." 
+            required
+            class="w-full pl-11 pr-4 py-3.5 sm:py-4 bg-slate-900/80 border border-white/10 rounded-xl text-white placeholder-slate-500 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+          />
+        </div>
+        <button 
+          type="submit" 
+          id="submitBtn"
+          class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold py-3.5 sm:py-4 px-8 rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all transform active:scale-95 text-sm sm:text-base whitespace-nowrap"
+        >
+          <i class="fa-solid fa-arrow-down-to-line"></i>
+          <span>Bóc Tách Ngay</span>
+        </button>
+      </form>
+
+      <!-- Paste fast action -->
+      <div class="mt-3 flex items-center justify-between text-xs text-slate-400 px-1">
+        <span class="flex items-center gap-1.5">
+          <i class="fa-solid fa-circle-check text-green-400"></i> Chuẩn Full HD 1080p
+        </span>
+        <button id="pasteBtn" class="hover:text-blue-400 flex items-center gap-1 transition-colors">
+          <i class="fa-regular fa-paste"></i> Dán từ khay nhớ tạm
+        </button>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loadingState" class="hidden mt-8 text-center space-y-3">
+      <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-blue-500 border-t-transparent"></div>
+      <p class="text-sm font-medium text-slate-300">Đang bóc tách video sạch không logo... (2-3s)</p>
+    </div>
+
+    <!-- Error Alert -->
+    <div id="errorAlert" class="hidden w-full mt-6 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm flex items-center gap-3">
+      <i class="fa-solid fa-triangle-exclamation text-lg"></i>
+      <span id="errorMessage">Không thể tải video từ link này. Vui lòng kiểm tra lại đường link công khai!</span>
+    </div>
+
+    <!-- Result Card -->
+    <div id="resultCard" class="hidden w-full mt-8 glass-card p-5 sm:p-6 rounded-2xl space-y-6 border border-blue-500/20">
+      <div class="flex flex-col sm:flex-row gap-5 items-start">
+        <!-- Thumbnail Preview -->
+        <div class="w-full sm:w-48 aspect-[9/16] max-h-64 sm:max-h-56 bg-slate-900 rounded-xl overflow-hidden relative shadow-md flex-shrink-0">
+          <img id="resCover" src="" alt="Thumbnail" class="w-full h-full object-cover">
+          <div class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/70 rounded text-[10px] font-semibold text-white">
+            HD Video
+          </div>
+        </div>
+
+        <!-- Info & Actions -->
+        <div class="flex-1 space-y-4 w-full">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span id="resPlatform" class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">
+                TikTok / Douyin
+              </span>
+              <span id="resAuthor" class="text-xs text-slate-400 flex items-center gap-1 font-medium">
+                <i class="fa-solid fa-user-check text-blue-400"></i> <span>Creator</span>
+              </span>
+            </div>
+            <h3 id="resTitle" class="text-base sm:text-lg font-bold text-white line-clamp-2 leading-snug">
+              Video không logo chất lượng cao
+            </h3>
+          </div>
+
+          <!-- Download Action Buttons -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            <a 
+              id="resDownloadVideo" 
+              href="#" 
+              target="_blank" 
+              class="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white font-bold py-3 px-4 rounded-xl text-center flex items-center justify-center gap-2 shadow-lg transition-all transform active:scale-95 text-sm"
+            >
+              <i class="fa-solid fa-download"></i>
+              <span>Tải Video Không Logo</span>
+            </a>
+
+            <a 
+              id="resDownloadAudio" 
+              href="#" 
+              target="_blank" 
+              class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-white/10 font-bold py-3 px-4 rounded-xl text-center flex items-center justify-center gap-2 transition-all transform active:scale-95 text-sm"
+            >
+              <i class="fa-solid fa-music text-purple-400"></i>
+              <span>Tách Nhạc MP3 Gốc</span>
+            </a>
+          </div>
+
+          <!-- Telegram Bot Promotion Box -->
+          <div class="p-3.5 rounded-xl bg-gradient-to-r from-blue-900/40 to-indigo-900/40 border border-blue-500/30 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5 text-xs text-slate-300">
+              <i class="fa-brands fa-telegram text-2xl text-blue-400"></i>
+              <div>
+                <strong class="text-white block font-semibold">Muốn tải hàng loạt & trong Group chat?</strong>
+                Dùng ngay Bot Telegram để tải không giới hạn!
+              </div>
+            </div>
+            <a href="https://t.me/builder1323_bot" target="_blank" class="text-xs bg-blue-500 hover:bg-blue-400 text-white font-bold px-3 py-2 rounded-lg whitespace-nowrap shadow transition-all">
+              Mở Bot 👉
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Supported Platforms Grid -->
+    <div class="w-full mt-14 sm:mt-20">
+      <h2 class="text-center text-xs font-bold uppercase tracking-widest text-slate-500 mb-6">
+        Hỗ trợ tải video đa nền tảng
+      </h2>
+      <div class="grid grid-cols-3 sm:grid-cols-6 gap-3 sm:gap-4">
+        <div class="glass-card p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-blue-500/40 transition-all">
+          <i class="fa-brands fa-tiktok text-2xl text-pink-400"></i>
+          <span class="text-xs font-semibold text-slate-300">TikTok</span>
+        </div>
+        <div class="glass-card p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-blue-500/40 transition-all">
+          <i class="fa-solid fa-video text-2xl text-red-500"></i>
+          <span class="text-xs font-semibold text-slate-300">Douyin (抖音)</span>
+        </div>
+        <div class="glass-card p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-blue-500/40 transition-all">
+          <i class="fa-brands fa-instagram text-2xl text-orange-400"></i>
+          <span class="text-xs font-semibold text-slate-300">Reels</span>
+        </div>
+        <div class="glass-card p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-blue-500/40 transition-all">
+          <i class="fa-solid fa-bolt text-2xl text-yellow-400"></i>
+          <span class="text-xs font-semibold text-slate-300">Kuaishou</span>
+        </div>
+        <div class="glass-card p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-blue-500/40 transition-all">
+          <i class="fa-brands fa-facebook text-2xl text-blue-500"></i>
+          <span class="text-xs font-semibold text-slate-300">Facebook</span>
+        </div>
+        <div class="glass-card p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-blue-500/40 transition-all">
+          <i class="fa-brands fa-youtube text-2xl text-red-600"></i>
+          <span class="text-xs font-semibold text-slate-300">Shorts</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ / Feature Highlights -->
+    <div class="w-full mt-14 space-y-4">
+      <h2 class="text-xl font-bold text-white text-center mb-6">Câu hỏi thường gặp</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-slate-400">
+        <div class="glass-card p-5 rounded-xl space-y-2">
+          <h4 class="font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-circle-question text-blue-400"></i> Video tải về có bị dính watermark không?
+          </h4>
+          <p>Hoàn toàn không. Công cụ tự động bóc tách đường dẫn video gốc từ máy chủ, loại bỏ 100% logo và ID tài khoản.</p>
+        </div>
+        <div class="glass-card p-5 rounded-xl space-y-2">
+          <h4 class="font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-circle-question text-purple-400"></i> Có giới hạn số lần tải không?
+          </h4>
+          <p>Trên Web bạn có thể tải miễn phí không giới hạn. Nếu muốn tải tốc độ cao tự động lưu trong chat, hãy dùng kèm Telegram Bot @builder1323_bot.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 bg-slate-950/60 py-6 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <span>© 2026 VideoSaver. Tải video không logo siêu tốc.</span>
+      <div class="flex items-center gap-4">
+        <a href="https://t.me/builder1323_bot" target="_blank" class="hover:text-blue-400 transition-colors">Telegram Bot VIP</a>
+        <a href="#downloadForm" class="hover:text-blue-400 transition-colors">Tải Ngay</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Frontend Logic: Hybrid Web API + Direct Fallback -->
+  <script>
+    const form = document.getElementById('downloadForm');
+    const urlInput = document.getElementById('videoUrl');
+    const pasteBtn = document.getElementById('pasteBtn');
+    const loadingState = document.getElementById('loadingState');
+    const errorAlert = document.getElementById('errorAlert');
+    const errorMessage = document.getElementById('errorMessage');
+    const resultCard = document.getElementById('resultCard');
+
+    // UI elements for result
+    const resCover = document.getElementById('resCover');
+    const resPlatform = document.getElementById('resPlatform');
+    const resAuthor = document.getElementById('resAuthor');
+    const resTitle = document.getElementById('resTitle');
+    const resDownloadVideo = document.getElementById('resDownloadVideo');
+    const resDownloadAudio = document.getElementById('resDownloadAudio');
+
+    // Fast Paste from Clipboard
+    pasteBtn.addEventListener('click', async () => {
+      try {
+        const text = await navigator.clipboard.readText();
+        if (text) {
+          urlInput.value = text.trim();
+          urlInput.focus();
+        }
+      } catch (err) {
+        alert('Vui lòng cấp quyền truy cập khay nhớ tạm để dán link nhanh!');
+      }
+    });
+
+    // Form Submission
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const url = urlInput.value.trim();
+      if (!url) return;
+
+      errorAlert.classList.add('hidden');
+      resultCard.classList.add('hidden');
+      loadingState.classList.remove('hidden');
+
+      // 1. First try TikWM public client-side direct extractor
+      try {
+        const formData = new URLSearchParams();
+        formData.append('url', url);
+        formData.append('hd', '1');
+
+        const response = await fetch('https://www.tikwm.com/api/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+          body: formData
+        });
+
+        const data = await response.json();
+        if (data && data.code === 0 && data.data) {
+          const d = data.data;
+          loadingState.classList.add('hidden');
+
+          resTitle.textContent = d.title || 'Video tải về không logo';
+          resPlatform.textContent = 'TikTok / Douyin (HD)';
+          resAuthor.querySelector('span').textContent = (d.author && (d.author.nickname || d.author.unique_id)) || 'Creator';
+          resCover.src = d.cover || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80';
+          
+          resDownloadVideo.href = d.hdplay || d.play || d.wmplay;
+          
+          if (d.music) {
+            resDownloadAudio.href = d.music;
+            resDownloadAudio.classList.remove('hidden');
+          } else {
+            resDownloadAudio.classList.add('hidden');
+          }
+
+          resultCard.classList.remove('hidden');
+          resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          return;
+        }
+      } catch (clientErr) {
+        console.warn('Direct client extractor error, trying server API:', clientErr);
+      }
+
+      // 2. Fallback to API endpoint
+      try {
+        const fallbackRes = await fetch('/api/extract', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ url })
+        });
+
+        const serverData = await fallbackRes.json();
+        loadingState.classList.add('hidden');
+
+        if (serverData && serverData.success) {
+          resTitle.textContent = serverData.title || 'Video tải về không logo';
+          resPlatform.textContent = serverData.platform || 'Social Video';
+          resAuthor.querySelector('span').textContent = serverData.author || 'Creator';
+          resCover.src = serverData.cover || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80';
+          
+          resDownloadVideo.href = serverData.videoUrl;
+          if (serverData.audioUrl) {
+            resDownloadAudio.href = serverData.audioUrl;
+            resDownloadAudio.classList.remove('hidden');
+          } else {
+            resDownloadAudio.classList.add('hidden');
+          }
+
+          resultCard.classList.remove('hidden');
+          resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          return;
+        }
+
+        errorMessage.textContent = (serverData && serverData.error) || 'Không thể bóc tách video từ link này. Vui lòng thử lại hoặc mở Telegram Bot!';
+        errorAlert.classList.remove('hidden');
+
+      } catch (finalErr) {
+        loadingState.classList.add('hidden');
+        errorMessage.textContent = 'Không thể tải video từ link này. Bạn có thể mở Bot Telegram @builder1323_bot để tải trực tiếp nhé!';
+        errorAlert.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
