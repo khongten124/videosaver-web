@@ -204,91 +204,148 @@
       </div>
     </div>
 
-    <!-- Dedicated VIP & Developer Pricing Banner (Above-The-Fold) -->
-    <div class="w-full mt-7 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+    <!-- Dedicated 3-Card Ecosystem (VIP Web, Telegram Bot, API) - Above-The-Fold -->
+    <div class="w-full mt-7 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-4.5 text-left">
       
-      <!-- VIP Membership Card with On-Page Modal Trigger -->
-      <div class="glass-card p-5 sm:p-6 rounded-2xl relative overflow-hidden border border-amber-500/30 bg-gradient-to-b from-amber-500/10 via-slate-900/60 to-slate-950 flex flex-col justify-between hover:border-amber-500/50 transition-all shadow-lg">
-        <div class="absolute -top-10 -right-10 w-28 h-28 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
-        <div>
-          <div class="flex items-center justify-between gap-2 mb-3">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-400 text-xs font-extrabold uppercase tracking-wide">
-              <i class="fa-solid fa-crown text-amber-300"></i> Gói VIP Cá Nhân
+      <!-- Card 1: VIP Cá Nhân (Web & Multi-device) -->
+      <div class="glass-card p-5 rounded-2xl relative overflow-hidden border border-amber-500/30 bg-gradient-to-b from-amber-500/10 via-slate-900/70 to-slate-950 flex flex-col justify-between hover:border-amber-500/50 transition-all shadow-lg">
+        <div class="absolute -top-8 -right-8 w-24 h-24 bg-amber-500/10 rounded-full blur-xl pointer-events-none"></div>
+        <div class="space-y-3">
+          <div class="flex items-center justify-between gap-1.5">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-400 text-[11px] font-extrabold uppercase">
+              <i class="fa-solid fa-crown text-amber-300"></i> VIP Web & Key
             </span>
-            <span class="text-xs font-bold text-amber-300/90 bg-amber-950/60 px-2.5 py-0.5 rounded-md border border-amber-500/20">
-              49.000đ / tháng
+            <span class="text-[11px] font-bold text-amber-300 bg-amber-950/70 px-2 py-0.5 rounded border border-amber-500/20">
+              49.000đ/th
             </span>
           </div>
 
-          <h3 class="text-lg sm:text-xl font-bold text-white mb-2 flex items-center gap-2">
-            Nâng Cấp VIP Không Giới Hạn
-          </h3>
-          <p class="text-slate-400 text-xs leading-relaxed mb-4">
-            Thanh toán VietQR tại chỗ, cấp mã VIP Key dùng trên mọi thiết bị (iPhone, Android, Máy tính).
-          </p>
+          <div>
+            <h3 class="text-base font-bold text-white flex items-center gap-1.5">
+              Nâng Cấp VIP Không Giới Hạn
+            </h3>
+            <p class="text-slate-400 text-[11px] leading-relaxed mt-1">
+              Quét VietQR tại chỗ, cấp mã VIP Key mở khóa trên mọi thiết bị (iPhone, Android, PC).
+            </p>
+          </div>
 
-          <ul class="space-y-2 text-xs text-slate-300 mb-6">
-            <li class="flex items-start gap-2">
-              <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
-              <span><strong>Tải KHÔNG GIỚI HẠN</strong> video mỗi ngày với tốc độ cao nhất.</span>
+          <ul class="space-y-1.5 text-[11px] text-slate-300">
+            <li class="flex items-start gap-1.5">
+              <i class="fa-solid fa-circle-check text-amber-400 mt-0.5 text-[10px]"></i>
+              <span><strong>Không giới hạn:</strong> Tải video tốc độ 1080p/2K siêu tốc.</span>
             </li>
-            <li class="flex items-start gap-2">
-              <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
-              <span><strong>Cấp mã VIP Key dùng đa thiết bị:</strong> Đổi điện thoại/máy tính chỉ cần dán mã Key là mở khóa lại ngay.</span>
+            <li class="flex items-start gap-1.5">
+              <i class="fa-solid fa-circle-check text-amber-400 mt-0.5 text-[10px]"></i>
+              <span><strong>VIP Key đa máy:</strong> Đổi thiết bị dán Key là xong ngay.</span>
             </li>
-            <li class="flex items-start gap-2">
-              <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
-              <span><strong>Thanh toán VietQR TPBank tại chỗ:</strong> Quét mã QR 5 phút, kích hoạt tự động không cần đổi ứng dụng.</span>
+            <li class="flex items-start gap-1.5">
+              <i class="fa-solid fa-circle-check text-amber-400 mt-0.5 text-[10px]"></i>
+              <span><strong>Kích hoạt tức thì:</strong> Quét QR TPBank 5 phút.</span>
             </li>
           </ul>
         </div>
 
-        <button onclick="openPaymentModal()" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-extrabold text-xs sm:text-sm text-center flex items-center justify-center gap-2 shadow-md transition-all transform active:scale-95 cursor-pointer">
-          <i class="fa-solid fa-qrcode text-base"></i>
-          <span>Quét VietQR Nâng VIP Tại Chỗ (49k)</span>
-        </button>
+        <div class="pt-4 space-y-1.5">
+          <button onclick="openPaymentModal()" class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-extrabold text-xs text-center flex items-center justify-center gap-1.5 shadow-md transition-all transform active:scale-95 cursor-pointer">
+            <i class="fa-solid fa-qrcode"></i>
+            <span>Quét VietQR Mua VIP (49k)</span>
+          </button>
+          <a href="#telegram-vip" class="block text-center text-[10px] text-slate-400 hover:text-amber-300 transition-colors">Xem 6 đặc quyền VIP ↓</a>
+        </div>
       </div>
 
-      <!-- Developer / RapidAPI Card -->
-      <div class="glass-card p-5 sm:p-6 rounded-2xl relative overflow-hidden border border-blue-500/30 bg-gradient-to-b from-blue-500/10 via-slate-900/60 to-slate-950 flex flex-col justify-between hover:border-blue-500/50 transition-all shadow-lg">
-        <div class="absolute -top-10 -right-10 w-28 h-28 bg-blue-500/10 rounded-full blur-2xl pointer-events-none"></div>
-        <div>
-          <div class="flex items-center justify-between gap-2 mb-3">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-400 text-xs font-extrabold uppercase tracking-wide">
-              <i class="fa-solid fa-code text-blue-300"></i> API Cho Developer
+      <!-- Card 2: Telegram Bot (@builder1323_bot) -->
+      <div class="glass-card p-5 rounded-2xl relative overflow-hidden border border-indigo-500/30 bg-gradient-to-b from-indigo-500/10 via-slate-900/70 to-slate-950 flex flex-col justify-between hover:border-indigo-500/50 transition-all shadow-lg">
+        <div class="absolute -top-8 -right-8 w-24 h-24 bg-indigo-500/10 rounded-full blur-xl pointer-events-none"></div>
+        <div class="space-y-3">
+          <div class="flex items-center justify-between gap-1.5">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 text-[11px] font-extrabold uppercase">
+              <i class="fa-brands fa-telegram text-indigo-400"></i> Bot Telegram
             </span>
-            <span class="text-xs font-bold text-blue-300/90 bg-blue-950/60 px-2.5 py-0.5 rounded-md border border-blue-500/20">
-              Từ $10 / tháng (Có Free Test)
+            <span class="text-[11px] font-bold text-green-400 bg-green-950/60 px-2 py-0.5 rounded border border-green-500/20 flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span> 24/7 Online
             </span>
           </div>
 
-          <h3 class="text-lg sm:text-xl font-bold text-white mb-2 flex items-center gap-2">
-            REST API Bóc Tách Video HD
-          </h3>
-          <p class="text-slate-400 text-xs leading-relaxed mb-4">
-            Tích hợp tính năng bóc tách video không logo vào ứng dụng, website hoặc bot của bạn qua sàn quốc tế RapidAPI.
-          </p>
+          <div>
+            <h3 class="text-base font-bold text-white flex items-center gap-1.5">
+              @builder1323_bot
+            </h3>
+            <p class="text-slate-400 text-[11px] leading-relaxed mt-1">
+              Dán link tải trực tiếp trong khung chat Telegram, không cần mở trình duyệt web.
+            </p>
+          </div>
 
-          <ul class="space-y-2 text-xs text-slate-300 mb-6">
-            <li class="flex items-start gap-2">
-              <i class="fa-solid fa-circle-check text-blue-400 mt-0.5"></i>
-              <span><strong>Gói BASIC (Free 0$):</strong> 100 requests/tháng để thử nghiệm tích hợp.</span>
+          <ul class="space-y-1.5 text-[11px] text-slate-300">
+            <li class="flex items-start gap-1.5">
+              <i class="fa-solid fa-circle-check text-indigo-400 mt-0.5 text-[10px]"></i>
+              <span><strong>Thêm vào Group:</strong> Cho cả nhóm/team tải chung.</span>
             </li>
-            <li class="flex items-start gap-2">
-              <i class="fa-solid fa-circle-check text-blue-400 mt-0.5"></i>
-              <span><strong>Gói PRO ($10/tháng):</strong> 10.000 requests/tháng cho app & dịch vụ.</span>
+            <li class="flex items-start gap-1.5">
+              <i class="fa-solid fa-circle-check text-indigo-400 mt-0.5 text-[10px]"></i>
+              <span><strong>Lưu đám mây:</strong> File video & MP3 lưu vĩnh viễn trong chat.</span>
             </li>
-            <li class="flex items-start gap-2">
-              <i class="fa-solid fa-circle-check text-blue-400 mt-0.5"></i>
-              <span><strong>Gói ULTRA ($30/tháng):</strong> 50.000 requests/tháng cho hệ thống lớn.</span>
+            <li class="flex items-start gap-1.5">
+              <i class="fa-solid fa-circle-check text-indigo-400 mt-0.5 text-[10px]"></i>
+              <span><strong>Tặng lượt:</strong> Mời bạn bè nhận ngay +3 lượt miễn phí.</span>
             </li>
           </ul>
         </div>
 
-        <a href="https://rapidapi.com/khongten124/api/tiktok-douyin-video-downloader-hd" target="_blank" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-extrabold text-xs sm:text-sm text-center flex items-center justify-center gap-2 shadow-md transition-all transform active:scale-95">
-          <i class="fa-solid fa-bolt text-yellow-300"></i>
-          <span>Đăng Ký API Trên RapidAPI 👉</span>
-        </a>
+        <div class="pt-4 space-y-1.5">
+          <a href="https://t.me/builder1323_bot" target="_blank" class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-extrabold text-xs text-center flex items-center justify-center gap-1.5 shadow-md transition-all transform active:scale-95">
+            <i class="fa-brands fa-telegram text-sm"></i>
+            <span>Mở Bot Telegram Ngay</span>
+          </a>
+          <a href="#telegram-vip" class="block text-center text-[10px] text-slate-400 hover:text-blue-300 transition-colors">Xem tính năng Bot ↓</a>
+        </div>
+      </div>
+
+      <!-- Card 3: Developer / RapidAPI -->
+      <div class="glass-card p-5 rounded-2xl relative overflow-hidden border border-blue-500/30 bg-gradient-to-b from-blue-500/10 via-slate-900/70 to-slate-950 flex flex-col justify-between hover:border-blue-500/50 transition-all shadow-lg">
+        <div class="absolute -top-8 -right-8 w-24 h-24 bg-blue-500/10 rounded-full blur-xl pointer-events-none"></div>
+        <div class="space-y-3">
+          <div class="flex items-center justify-between gap-1.5">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-400 text-[11px] font-extrabold uppercase">
+              <i class="fa-solid fa-code text-blue-300"></i> REST API Dev
+            </span>
+            <span class="text-[11px] font-bold text-blue-300 bg-blue-950/70 px-2 py-0.5 rounded border border-blue-500/20">
+              Từ $10/th (Free Test)
+            </span>
+          </div>
+
+          <div>
+            <h3 class="text-base font-bold text-white flex items-center gap-1.5">
+              API Bóc Tách Video HD
+            </h3>
+            <p class="text-slate-400 text-[11px] leading-relaxed mt-1">
+              Tích hợp API bóc tách video vào ứng dụng, web hoặc bot của bạn qua RapidAPI.
+            </p>
+          </div>
+
+          <ul class="space-y-1.5 text-[11px] text-slate-300">
+            <li class="flex items-start gap-1.5">
+              <i class="fa-solid fa-circle-check text-blue-400 mt-0.5 text-[10px]"></i>
+              <span><strong>Gói BASIC (Free 0$):</strong> 100 requests/tháng test SDK.</span>
+            </li>
+            <li class="flex items-start gap-1.5">
+              <i class="fa-solid fa-circle-check text-blue-400 mt-0.5 text-[10px]"></i>
+              <span><strong>Gói PRO ($10/th):</strong> 10.000 requests bóc tách HD.</span>
+            </li>
+            <li class="flex items-start gap-1.5">
+              <i class="fa-solid fa-circle-check text-blue-400 mt-0.5 text-[10px]"></i>
+              <span><strong>Độ trễ &lt;1s:</strong> Hỗ trợ Python, Node.js, PHP, cURL.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pt-4 space-y-1.5">
+          <a href="https://rapidapi.com/khongten124/api/tiktok-douyin-video-downloader-hd" target="_blank" class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-blue-700 via-indigo-700 to-cyan-600 hover:from-blue-600 hover:to-cyan-500 text-white font-extrabold text-xs text-center flex items-center justify-center gap-1.5 shadow-md transition-all transform active:scale-95">
+            <i class="fa-solid fa-bolt text-yellow-300"></i>
+            <span>Đăng Ký Trên RapidAPI 👉</span>
+          </a>
+          <a href="https://rapidapi.com/khongten124/api/tiktok-douyin-video-downloader-hd" target="_blank" class="block text-center text-[10px] text-slate-400 hover:text-cyan-300 transition-colors">Tài liệu API SDK ↗</a>
+        </div>
       </div>
 
     </div>
