@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VideoSaver - Tải Video TikTok, Douyin Không Logo Full HD Miễn Phí</title>
+  
+  <!-- SEO Primary Meta Tags -->
+  <meta name="description" content="Công cụ tải video TikTok, Douyin (TikTok Trung Quốc), Instagram Reels, Facebook, Kuaishou không logo chất lượng Full HD 1080p miễn phí 100%. Tách nhạc MP3 siêu tốc, không quảng cáo rác.">
+  <meta name="keywords" content="tải video tiktok không logo, douyin downloader no watermark, cách tải video douyin, tải video reels instagram, tai video kuaishou, video saver bot, tach nhac tiktok mp3, tai video khong watermark, snaptik douyin">
+  <meta name="author" content="VideoSaver">
+  <meta name="robots" content="index, follow">
+  <meta name="google-site-verification" content="google69f03f5847b01a1d" />
+  <link rel="canonical" href="https://videosaver-web.vercel.app/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://videosaver-web.vercel.app/">
+  <meta property="og:title" content="VideoSaver - Tải Video TikTok, Douyin Không Logo Chuẩn HD Miễn Phí">
+  <meta property="og:description" content="Dán link bóc tách ngay video TikTok, Douyin, Reels Full HD không watermark trong 2 giây. Hỗ trợ tách nhạc MP3 gốc miễn phí.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&q=80">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://videosaver-web.vercel.app/">
+  <meta property="twitter:title" content="VideoSaver - Tải Video TikTok, Douyin Không Logo Miễn Phí">
+  <meta property="twitter:description" content="Dán link bóc tách ngay video TikTok, Douyin, Reels Full HD không logo trong 2s.">
+
+  <!-- Schema.org JSON-LD Structured Data for Google Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://videosaver-web.vercel.app/#webapp",
+        "url": "https://videosaver-web.vercel.app/",
+        "name": "VideoSaver - Video Downloader No Watermark",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "VND"
+        },
+        "description": "Công cụ trực tuyến bóc tách và tải video không logo chất lượng cao từ TikTok, Douyin, Instagram Reels, Kuaishou, Facebook và Shorts."
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://videosaver-web.vercel.app/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Làm thế nào để tải video Douyin (TikTok Trung Quốc) không dính logo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bạn chỉ cần mở app Douyin, bấm nút Chia sẻ (icon mũi tên) rồi chọn Sao chép liên kết. Sau đó quay lại website VideoSaver, dán link vào ô nhập và bấm 'Bóc Tách Ngay'. Hệ thống sẽ tự động trích xuất file video gốc 1080p không dính watermark trong 2 giây."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Tải video TikTok không logo tại VideoSaver có miễn phí không?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hoàn toàn miễn phí 100%. Bạn có thể tải không giới hạn số lượng video trực tiếp trên trình duyệt Web hoặc sử dụng bot Telegram @builder1323_bot để tải nhanh trong hội nhóm."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Tôi có thể chuyển VIP sang thiết bị khác (iPhone, Laptop) không?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Có. Khi đăng ký VIP, bạn được cấp một mã VIP Key độc quyền (ví dụ: VIP-XXXX-XXXX). Khi sang thiết bị khác, bạn chỉ cần bấm nút 'Kích Hoạt VIP Key' và dán mã vào là xong ngay trong 1 giây."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Tôi có thể tách riêng file nhạc nền MP3 của video TikTok không?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Có. Sau khi bóc tách video, hệ thống cung cấp nút 'Tách Nhạc MP3 Gốc' để bạn tải riêng file âm thanh chất lượng cao 320kbps làm nhạc chuông hoặc edit video."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Tailwind CSS CDN & FontAwesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: radial-gradient(circle at top, #181c2e 0%, #0c0e17 100%);
+    }
+    .glass-card {
+      background: rgba(25, 30, 50, 0.7);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glow-accent {
+      box-shadow: 0 0 35px -5px rgba(59, 130, 246, 0.4);
+    }
+    .animated-gradient {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+      background-size: 200% 200%;
+      animation: gradientMove 6s ease infinite;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
+</head>
+<body class="min-h-screen text-slate-100 flex flex-col justify-between selection:bg-blue-500 selection:text-white">
+
+  <!-- Header -->
+  <header class="border-b border-white/5 bg-slate-950/40 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl animated-gradient flex items-center justify-center shadow-lg">
+          <i class="fa-solid fa-cloud-arrow-down text-white text-xl"></i>
+        </div>
+        <div>
+          <span class="text-xl font-extrabold tracking-tight text-white flex items-center gap-2">
+            Video<span class="text-blue-400">Saver</span>
+            <span class="text-xs bg-blue-500/20 text-blue-400 font-semibold px-2 py-0.5 rounded-full border border-blue-500/30">HD 4K</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Header Action Buttons -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- VIP Key Status / Button -->
+        <button id="vipKeyBtn" onclick="openKeyModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold border border-amber-500/40 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 transition-all">
+          <i class="fa-solid fa-key"></i>
+          <span id="vipKeyBtnText">Nhập VIP Key</span>
+        </button>
+
+        <!-- Telegram Bot Link -->
+        <a href="https://t.me/builder1323_bot" target="_blank" class="flex items-center space-x-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-xs px-3.5 py-1.5 rounded-xl shadow-md transition-all transform hover:scale-105">
+          <i class="fa-brands fa-telegram text-sm"></i>
+          <span class="hidden sm:inline">Bot Telegram</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero & Main Input Area -->
+  <main class="max-w-4xl mx-auto px-4 py-10 sm:py-14 w-full flex-1 flex flex-col items-center justify-center">
+    
+    <!-- Title & Badge -->
+    <div class="text-center space-y-3.5 max-w-2xl">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider">
+        <i class="fa-solid fa-bolt text-yellow-400"></i> Bóc tách video không logo siêu tốc
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+        Tải Video <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">Không Watermark</span> Chuẩn HD
+      </h1>
+      <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+        Công cụ trích xuất video TikTok, Douyin (TikTok TQ), Instagram Reels, Facebook, Kuaishou & YouTube Shorts không dính logo. Miễn phí 100% - Không popup quảng cáo!
+      </p>
+    </div>
+
+    <!-- Input Card -->
+    <div class="w-full mt-7 glass-card p-4 sm:p-6 rounded-2xl glow-accent">
+      <form id="downloadForm" class="flex flex-col sm:flex-row gap-3">
+        <div class="relative flex-1">
+          <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+            <i class="fa-solid fa-link"></i>
+          </div>
+          <input 
+            type="url" 
+            id="videoUrl" 
+            placeholder="Dán link video (TikTok, Douyin, Reels, Shorts, Kuaishou...)..." 
+            required
+            class="w-full pl-11 pr-4 py-3.5 sm:py-4 bg-slate-900/80 border border-white/10 rounded-xl text-white placeholder-slate-500 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+          />
+        </div>
+        <button 
+          type="submit" 
+          id="submitBtn"
+          class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold py-3.5 sm:py-4 px-8 rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all transform active:scale-95 text-sm sm:text-base whitespace-nowrap"
+        >
+          <i class="fa-solid fa-arrow-down-to-line"></i>
+          <span>Bóc Tách Ngay</span>
+        </button>
+      </form>
+
+      <!-- Paste fast action -->
+      <div class="mt-3 flex items-center justify-between text-xs text-slate-400 px-1">
+        <span class="flex items-center gap-1.5">
+          <i class="fa-solid fa-circle-check text-green-400"></i> Chuẩn Full HD 1080p · Không Watermark
+        </span>
+        <button id="pasteBtn" class="hover:text-blue-400 flex items-center gap-1 transition-colors">
+          <i class="fa-regular fa-paste"></i> Dán từ khay nhớ tạm
+        </button>
+      </div>
+    </div>
+
+    <!-- Dedicated VIP & Developer Pricing Banner (Above-The-Fold) -->
+    <div class="w-full mt-7 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+      
+      <!-- VIP Membership Card with On-Page Modal Trigger -->
+      <div class="glass-card p-5 sm:p-6 rounded-2xl relative overflow-hidden border border-amber-500/30 bg-gradient-to-b from-amber-500/10 via-slate-900/60 to-slate-950 flex flex-col justify-between hover:border-amber-500/50 transition-all shadow-lg">
+        <div class="absolute -top-10 -right-10 w-28 h-28 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-400 text-xs font-extrabold uppercase tracking-wide">
+              <i class="fa-solid fa-crown text-amber-300"></i> Gói VIP Cá Nhân
+            </span>
+            <span class="text-xs font-bold text-amber-300/90 bg-amber-950/60 px-2.5 py-0.5 rounded-md border border-amber-500/20">
+              49.000đ / tháng
+            </span>
+          </div>
+
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-2 flex items-center gap-2">
+            Nâng Cấp VIP Không Giới Hạn
+          </h3>
+          <p class="text-slate-400 text-xs leading-relaxed mb-4">
+            Thanh toán VietQR tại chỗ, cấp mã VIP Key dùng trên mọi thiết bị (iPhone, Android, Máy tính).
+          </p>
+
+          <ul class="space-y-2 text-xs text-slate-300 mb-6">
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
+              <span><strong>Tải KHÔNG GIỚI HẠN</strong> video mỗi ngày với tốc độ cao nhất.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
+              <span><strong>Cấp mã VIP Key dùng đa thiết bị:</strong> Đổi điện thoại/máy tính chỉ cần dán mã Key là mở khóa lại ngay.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-circle-check text-amber-400 mt-0.5"></i>
+              <span><strong>Thanh toán VietQR TPBank tại chỗ:</strong> Quét mã QR 5 phút, kích hoạt tự động không cần đổi ứng dụng.</span>
+            </li>
+          </ul>
+        </div>
+
+        <button onclick="openPaymentModal()" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-extrabold text-xs sm:text-sm text-center flex items-center justify-center gap-2 shadow-md transition-all transform active:scale-95 cursor-pointer">
+          <i class="fa-solid fa-qrcode text-base"></i>
+          <span>Quét VietQR Nâng VIP Tại Chỗ (49k)</span>
+        </button>
+      </div>
+
+      <!-- Developer / RapidAPI Card -->
+      <div class="glass-card p-5 sm:p-6 rounded-2xl relative overflow-hidden border border-blue-500/30 bg-gradient-to-b from-blue-500/10 via-slate-900/60 to-slate-950 flex flex-col justify-between hover:border-blue-500/50 transition-all shadow-lg">
+        <div class="absolute -top-10 -right-10 w-28 h-28 bg-blue-500/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-400 text-xs font-extrabold uppercase tracking-wide">
+              <i class="fa-solid fa-code text-blue-300"></i> API Cho Developer
+            </span>
+            <span class="text-xs font-bold text-blue-300/90 bg-blue-950/60 px-2.5 py-0.5 rounded-md border border-blue-500/20">
+              Từ $10 / tháng (Có Free Test)
+            </span>
+          </div>
+
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-2 flex items-center gap-2">
+            REST API Bóc Tách Video HD
+          </h3>
+          <p class="text-slate-400 text-xs leading-relaxed mb-4">
+            Tích hợp tính năng bóc tách video không logo vào ứng dụng, website hoặc bot của bạn qua sàn quốc tế RapidAPI.
+          </p>
+
+          <ul class="space-y-2 text-xs text-slate-300 mb-6">
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-circle-check text-blue-400 mt-0.5"></i>
+              <span><strong>Gói BASIC (Free 0$):</strong> 100 requests/tháng để thử nghiệm tích hợp.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-circle-check text-blue-400 mt-0.5"></i>
+              <span><strong>Gói PRO ($10/tháng):</strong> 10.000 requests/tháng cho app & dịch vụ.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-circle-check text-blue-400 mt-0.5"></i>
+              <span><strong>Gói ULTRA ($30/tháng):</strong> 50.000 requests/tháng cho hệ thống lớn.</span>
+            </li>
+          </ul>
+        </div>
+
+        <a href="https://rapidapi.com/khongten124/api/tiktok-douyin-video-downloader-hd" target="_blank" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-extrabold text-xs sm:text-sm text-center flex items-center justify-center gap-2 shadow-md transition-all transform active:scale-95">
+          <i class="fa-solid fa-bolt text-yellow-300"></i>
+          <span>Đăng Ký API Trên RapidAPI 👉</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Loading State -->
+    <div id="loadingState" class="hidden mt-8 text-center space-y-3">
+      <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-blue-500 border-t-transparent"></div>
+      <p class="text-sm font-medium text-slate-300">Đang bóc tách video sạch không logo... (2-3s)</p>
+    </div>
+
+    <!-- Error Alert -->
+    <div id="errorAlert" class="hidden w-full mt-6 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm flex items-center gap-3">
+      <i class="fa-solid fa-triangle-exclamation text-lg"></i>
+      <span id="errorMessage">Không thể tải video từ link này. Vui lòng kiểm tra lại đường link công khai!</span>
+    </div>
+
+    <!-- Result Card -->
+    <div id="resultCard" class="hidden w-full mt-8 glass-card p-5 sm:p-6 rounded-2xl space-y-6 border border-blue-500/20">
+      <div class="flex flex-col sm:flex-row gap-5 items-start">
+        <!-- Thumbnail Preview -->
+        <div class="w-full sm:w-48 aspect-[9/16] max-h-64 sm:max-h-56 bg-slate-900 rounded-xl overflow-hidden relative shadow-md flex-shrink-0">
+          <img id="resCover" src="" alt="Thumbnail" class="w-full h-full object-cover">
+          <div class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/70 rounded text-[10px] font-semibold text-white">
+            HD Video
+          </div>
+        </div>
+
+        <!-- Info & Actions -->
+        <div class="flex-1 space-y-4 w-full">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span id="resPlatform" class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">
+                TikTok / Douyin
+              </span>
+              <span id="resAuthor" class="text-xs text-slate-400 flex items-center gap-1 font-medium">
+                <i class="fa-solid fa-user-check text-blue-400"></i> <span>Creator</span>
+              </span>
+            </div>
+            <h3 id="resTitle" class="text-base sm:text-lg font-bold text-white line-clamp-2 leading-snug">
+              Video không logo chất lượng cao
+            </h3>
+          </div>
+
+          <!-- Download Action Buttons -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            <a 
+              id="resDownloadVideo" 
+              href="#" 
+              target="_blank" 
+              class="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white font-bold py-3 px-4 rounded-xl text-center flex items-center justify-center gap-2 shadow-lg transition-all transform active:scale-95 text-sm"
+            >
+              <i class="fa-solid fa-download"></i>
+              <span>Tải Video Không Logo</span>
+            </a>
+
+            <a 
+              id="resDownloadAudio" 
+              href="#" 
+              target="_blank" 
+              class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 border border-white/10 font-bold py-3 px-4 rounded-xl text-center flex items-center justify-center gap-2 transition-all transform active:scale-95 text-sm"
+            >
+              <i class="fa-solid fa-music text-purple-400"></i>
+              <span>Tách Nhạc MP3 Gốc</span>
+            </a>
+          </div>
+
+          <!-- VIP Upsell Note -->
+          <div class="p-3.5 rounded-xl bg-gradient-to-r from-amber-950/40 to-orange-950/40 border border-amber-500/30 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5 text-xs text-slate-300">
+              <i class="fa-solid fa-crown text-2xl text-amber-400"></i>
+              <div>
+                <strong class="text-white block font-semibold">Tải hàng loạt & tốc độ ưu tiên cao nhất?</strong>
+                Kích hoạt VIP chỉ 49k dùng trên mọi thiết bị!
+              </div>
+            </div>
+            <button onclick="openPaymentModal()" class="text-xs bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-3 py-2 rounded-lg whitespace-nowrap shadow transition-all cursor-pointer">
+              Mua VIP 49k 👉
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Supported Platforms Grid -->
+    <div class="w-full mt-14 sm:mt-16">
+      <h2 class="text-center text-xs font-bold uppercase tracking-widest text-slate-500 mb-6">
+        Hỗ trợ tải video đa nền tảng
+      </h2>
+      <div class="grid grid-cols-3 sm:grid-cols-6 gap-3 sm:gap-4">
+        <div class="glass-card p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-blue-500/40 transition-all">
+          <i class="fa-brands fa-tiktok text-2xl text-pink-400"></i>
+          <span class="text-xs font-semibold text-slate-300">TikTok</span>
+        </div>
+        <div class="glass-card p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-blue-500/40 transition-all">
+          <i class="fa-solid fa-video text-2xl text-red-500"></i>
+          <span class="text-xs font-semibold text-slate-300">Douyin (抖音)</span>
+        </div>
+        <div class="glass-card p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-blue-500/40 transition-all">
+          <i class="fa-brands fa-instagram text-2xl text-orange-400"></i>
+          <span class="text-xs font-semibold text-slate-300">Reels</span>
+        </div>
+        <div class="glass-card p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-blue-500/40 transition-all">
+          <i class="fa-solid fa-bolt text-2xl text-yellow-400"></i>
+          <span class="text-xs font-semibold text-slate-300">Kuaishou</span>
+        </div>
+        <div class="glass-card p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-blue-500/40 transition-all">
+          <i class="fa-brands fa-facebook text-2xl text-blue-500"></i>
+          <span class="text-xs font-semibold text-slate-300">Facebook</span>
+        </div>
+        <div class="glass-card p-4 rounded-xl flex flex-col items-center justify-center gap-2 text-center hover:border-blue-500/40 transition-all">
+          <i class="fa-brands fa-youtube text-2xl text-red-600"></i>
+          <span class="text-xs font-semibold text-slate-300">Shorts</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO Content: Comprehensive User Guide -->
+    <section id="guide" class="w-full mt-14 space-y-6 text-left">
+      <div class="border-t border-white/10 pt-8">
+        <h2 class="text-2xl font-bold text-white mb-4">
+          Hướng dẫn cách tải video TikTok & Douyin không logo Full HD
+        </h2>
+        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+          <strong>VideoSaver</strong> là công cụ trực tuyến hàng đầu giúp bạn tải và lưu lại các video yêu thích từ TikTok, Douyin (Trung Quốc), Instagram Reels, Facebook và Kuaishou về điện thoại (iOS, Android) hoặc máy tính mà hoàn toàn không bị dính logo watermark hay ID người dùng.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div class="glass-card p-5 rounded-xl space-y-2 border-l-4 border-blue-500">
+            <span class="text-blue-400 font-extrabold text-lg">01</span>
+            <h3 class="font-bold text-white text-base">Sao chép liên kết</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">Mở ứng dụng TikTok hoặc Douyin trên điện thoại, chọn video bạn muốn tải, bấm nút <strong>Chia sẻ</strong> và chọn <strong>Sao chép liên kết</strong>.</p>
+          </div>
+
+          <div class="glass-card p-5 rounded-xl space-y-2 border-l-4 border-indigo-500">
+            <span class="text-indigo-400 font-extrabold text-lg">02</span>
+            <h3 class="font-bold text-white text-base">Dán vào VideoSaver</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">Quay lại trang web <strong>VideoSaver</strong>, dán đường link vừa sao chép vào ô tìm kiếm và bấm nút <strong>Bóc Tách Ngay</strong>.</p>
+          </div>
+
+          <div class="glass-card p-5 rounded-xl space-y-2 border-l-4 border-green-500">
+            <span class="text-green-400 font-extrabold text-lg">03</span>
+            <h3 class="font-bold text-white text-base">Tải video sạch HD</h3>
+            <p class="text-slate-400 text-xs leading-relaxed">Hệ thống xử lý trong 2 giây và hiển thị nút tải video không logo chuẩn 1080p hoặc tách riêng file âm thanh MP3 về máy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="w-full mt-12 space-y-4">
+      <h2 class="text-2xl font-bold text-white text-center mb-6">Câu hỏi thường gặp (FAQ)</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-slate-400">
+        <div class="glass-card p-5 rounded-xl space-y-2">
+          <h3 class="font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-circle-question text-blue-400"></i> Video tải về có bị mờ hay giảm chất lượng không?
+          </h3>
+          <p>Không. VideoSaver luôn ưu tiên trích xuất đường dẫn video gốc chất lượng cao nhất (Full HD 1080p hoặc 2K) trực tiếp từ máy chủ của nền tảng.</p>
+        </div>
+        <div class="glass-card p-5 rounded-xl space-y-2">
+          <h3 class="font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-circle-question text-amber-400"></i> Khi đổi điện thoại hoặc máy tính, VIP có bị mất không?
+          </h3>
+          <p>Không hề mất. Bạn chỉ cần bấm nút "Nhập VIP Key" ở góc trên màn hình và dán mã VIP Key đã lưu vào là mọi quyền lợi VIP được khôi phục ngay lập tức.</p>
+        </div>
+        <div class="glass-card p-5 rounded-xl space-y-2">
+          <h3 class="font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-circle-question text-emerald-400"></i> Có thể tải video Douyin (TikTok Trung Quốc) trên iPhone không?
+          </h3>
+          <p>Có. Bạn chỉ cần dùng trình duyệt Safari trên iPhone hoặc Chrome trên Android để truy cập trang web và tải về album ảnh trực tiếp.</p>
+        </div>
+        <div class="glass-card p-5 rounded-xl space-y-2">
+          <h3 class="font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-circle-question text-purple-400"></i> Tôi là lập trình viên muốn mua API thì làm sao?
+          </h3>
+          <p>Bạn có thể bấm vào khung "API Cho Developer" để đăng ký các gói từ $10/tháng trên sàn quốc tế RapidAPI với đầy đủ tài liệu SDK.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 bg-slate-950/60 py-6 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <span>© 2026 VideoSaver. Tải video không logo siêu tốc & miễn phí 100%.</span>
+      <div class="flex items-center gap-4">
+        <a href="#guide" class="hover:text-blue-400 transition-colors">Hướng Dẫn</a>
+        <a href="#faq" class="hover:text-blue-400 transition-colors">FAQ</a>
+        <a href="https://t.me/builder1323_bot" target="_blank" class="hover:text-blue-400 transition-colors">Telegram Bot VIP</a>
+        <a href="https://rapidapi.com/khongten124/api/tiktok-douyin-video-downloader-hd" target="_blank" class="hover:text-blue-400 transition-colors">RapidAPI</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= MODALS ================= -->
+
+  <!-- Modal 1: On-Page VietQR Payment Modal (5-Minute Countdown) -->
+  <div id="paymentModal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="glass-card max-w-md w-full p-6 rounded-3xl border border-amber-500/40 shadow-2xl relative space-y-5 animate-fade-in bg-slate-900">
+      
+      <!-- Close Button -->
+      <button onclick="closePaymentModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-full text-lg cursor-pointer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center space-y-1">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold uppercase">
+          <i class="fa-solid fa-crown"></i> Thanh Toán VIP 1 Tháng
+        </span>
+        <h3 class="text-xl font-bold text-white">Quét VietQR Tự Động</h3>
+        <p class="text-xs text-slate-400">Mở app ngân hàng quét mã để nhận mã VIP Key tức thì</p>
+      </div>
+
+      <!-- QR Box -->
+      <div class="flex flex-col items-center justify-center bg-white p-4 rounded-2xl shadow-inner">
+        <img id="qrImage" src="" alt="VietQR TPBank" class="w-48 h-48 sm:w-52 sm:h-52 object-contain" />
+        <div class="mt-2 text-slate-900 font-extrabold text-sm flex items-center gap-1">
+          <span>Số tiền:</span> <span class="text-red-600">49.000 VNĐ</span>
+        </div>
+      </div>
+
+      <!-- Bank Details -->
+      <div class="bg-slate-950/60 p-3.5 rounded-xl border border-white/5 text-xs space-y-1.5">
+        <div class="flex justify-between">
+          <span class="text-slate-400">Ngân hàng:</span>
+          <span class="font-bold text-white">TPBank (Tiên Phong)</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-400">Số tài khoản:</span>
+          <span class="font-bold text-amber-300 font-mono text-sm">00004362479</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-400">Chủ tài khoản:</span>
+          <span class="font-bold text-white">TONG DUC HONG ANH</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-400">Nội dung CK:</span>
+          <span id="qrOrderCode" class="font-bold text-amber-400 font-mono text-sm bg-amber-500/10 px-2 py-0.5 rounded">VIP...</span>
+        </div>
+        <div class="flex justify-between pt-1 border-t border-white/5">
+          <span class="text-slate-400">Thời hạn mã:</span>
+          <span id="qrCountdown" class="font-bold text-red-400">05:00</span>
+        </div>
+      </div>
+
+      <!-- Claim / Confirmation Action -->
+      <div class="space-y-2">
+        <button onclick="claimVipKey()" id="claimKeyBtn" class="w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-extrabold text-sm rounded-xl shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-all">
+          <i class="fa-solid fa-check-circle"></i>
+          <span>Tôi Đã Chuyển Khoản ➔ Lấy VIP Key</span>
+        </button>
+
+        <button onclick="refreshOrder()" class="w-full py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs rounded-xl flex items-center justify-center gap-1.5 cursor-pointer transition-all">
+          <i class="fa-solid fa-rotate"></i>
+          <span>Tạo Lại Mã QR Mới</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal 2: VIP Key Activation & Restore Modal -->
+  <div id="keyModal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="glass-card max-w-md w-full p-6 rounded-3xl border border-amber-500/40 shadow-2xl relative space-y-5 animate-fade-in bg-slate-900">
+      
+      <button onclick="closeKeyModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-full text-lg cursor-pointer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center space-y-1">
+        <div class="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center mx-auto text-xl mb-2">
+          <i class="fa-solid fa-key"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white">Kích Hoạt Mã VIP Key</h3>
+        <p class="text-xs text-slate-400">Dán mã VIP Key bạn đã mua để mở khóa không giới hạn trên thiết bị này</p>
+      </div>
+
+      <!-- Input Form -->
+      <div class="space-y-3">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Mã VIP Key của bạn:</label>
+          <input 
+            type="text" 
+            id="inputVipKey" 
+            placeholder="Ví dụ: VIP-8F92-K4A1-..." 
+            class="w-full px-4 py-3 bg-slate-950 border border-white/10 rounded-xl text-amber-300 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+          />
+        </div>
+
+        <button onclick="submitVipKey()" id="submitKeyBtn" class="w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-extrabold text-sm rounded-xl shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-all">
+          <i class="fa-solid fa-unlock"></i>
+          <span>Kích Hoạt Trên Thiết Bị Này</span>
+        </button>
+
+        <div id="keyStatusMsg" class="hidden p-3 rounded-xl text-xs text-center"></div>
+      </div>
+
+      <div class="pt-2 border-t border-white/5 text-center text-xs text-slate-400">
+        Chưa có mã VIP? <a href="javascript:void(0)" onclick="closeKeyModal(); openPaymentModal();" class="text-amber-400 font-bold hover:underline">Quét VietQR mua ngay chỉ 49k</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal 3: Success VIP Key Display Modal -->
+  <div id="successKeyModal" class="hidden fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="glass-card max-w-md w-full p-6 rounded-3xl border border-green-500/40 shadow-2xl relative space-y-5 animate-fade-in bg-slate-900 text-center">
+      
+      <div class="w-14 h-14 rounded-full bg-green-500/20 border border-green-500/40 text-green-400 flex items-center justify-center mx-auto text-2xl">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+
+      <div class="space-y-1">
+        <h3 class="text-xl font-extrabold text-white">Nâng Cấp VIP Thành Công!</h3>
+        <p class="text-xs text-slate-300">Dưới đây là mã VIP Key độc quyền của bạn (đã tự động kích hoạt):</p>
+      </div>
+
+      <!-- Key Box -->
+      <div class="p-4 bg-slate-950 rounded-2xl border border-amber-500/40 space-y-2">
+        <div id="displayKeyText" class="font-mono text-sm sm:text-base font-bold text-amber-300 break-all select-all">
+          VIP-XXXX-XXXX-...
+        </div>
+        <button onclick="copyGeneratedKey()" id="copyKeyBtn" class="w-full py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 transition-colors cursor-pointer">
+          <i class="fa-regular fa-copy"></i>
+          <span id="copyKeyBtnText">Sao Chép Mã Key</span>
+        </button>
+      </div>
+
+      <p class="text-[11px] text-slate-400 leading-relaxed">
+        💡 <strong>Mẹo:</strong> Hãy lưu lại mã Key này. Khi đổi sang điện thoại hoặc máy tính khác, bạn chỉ cần dán mã vào để dùng tiếp nhé!
+      </p>
+
+      <button onclick="closeSuccessModal()" class="w-full py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white font-extrabold text-sm rounded-xl shadow-lg cursor-pointer">
+        Bắt Đầu Sử Dụng Ngay
+      </button>
+
+    </div>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    let currentOrderCode = '';
+    let countdownInterval = null;
+
+    // Load VIP State from LocalStorage on Startup
+    document.addEventListener('DOMContentLoaded', () => {
+      checkStoredVipKey();
+    });
+
+    async function checkStoredVipKey() {
+      const storedKey = localStorage.getItem('videosaver_vip_key');
+      if (storedKey) {
+        try {
+          const res = await fetch('/api/order?action=verify-key', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ vipKey: storedKey })
+          });
+          const data = await res.json();
+          if (data && data.valid) {
+            document.getElementById('vipKeyBtnText').innerHTML = `⭐ VIP (${data.daysLeft} ngày)`;
+            document.getElementById('vipKeyBtn').classList.remove('bg-amber-500/10', 'text-amber-300');
+            document.getElementById('vipKeyBtn').classList.add('bg-green-500/20', 'text-green-300', 'border-green-500/40');
+          } else {
+            localStorage.removeItem('videosaver_vip_key');
+          }
+        } catch(e) {}
+      }
+    }
+
+    // Modal Control Functions
+    function openPaymentModal() {
+      document.getElementById('paymentModal').classList.remove('hidden');
+      refreshOrder();
+    }
+
+    function closePaymentModal() {
+      document.getElementById('paymentModal').classList.add('hidden');
+      if (countdownInterval) clearInterval(countdownInterval);
+    }
+
+    function openKeyModal() {
+      const storedKey = localStorage.getItem('videosaver_vip_key');
+      if (storedKey) {
+        document.getElementById('inputVipKey').value = storedKey;
+      }
+      document.getElementById('keyStatusMsg').classList.add('hidden');
+      document.getElementById('keyModal').classList.remove('hidden');
+    }
+
+    function closeKeyModal() {
+      document.getElementById('keyModal').classList.add('hidden');
+    }
+
+    function closeSuccessModal() {
+      document.getElementById('successKeyModal').classList.add('hidden');
+      checkStoredVipKey();
+    }
+
+    // Order Creation & Countdown
+    async function refreshOrder() {
+      if (countdownInterval) clearInterval(countdownInterval);
+      document.getElementById('qrImage').src = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200&q=80';
+      document.getElementById('qrOrderCode').textContent = 'Đang tạo...';
+
+      try {
+        const res = await fetch('/api/order?action=create', { method: 'POST' });
+        const data = await res.json();
+        if (data && data.success) {
+          currentOrderCode = data.orderCode;
+          document.getElementById('qrImage').src = data.qrUrl;
+          document.getElementById('qrOrderCode').textContent = data.orderCode;
+          startCountdown(5 * 60);
+        }
+      } catch (err) {
+        alert('Lỗi tạo mã đơn hàng. Vui lòng thử lại!');
+      }
+    }
+
+    function startCountdown(durationSeconds) {
+      let remaining = durationSeconds;
+      const display = document.getElementById('qrCountdown');
+      
+      const updateDisplay = () => {
+        const m = Math.floor(remaining / 60);
+        const s = remaining % 60;
+        display.textContent = `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+        if (remaining <= 0) {
+          clearInterval(countdownInterval);
+          display.textContent = 'Đã hết hạn';
+        }
+        remaining--;
+      };
+
+      updateDisplay();
+      countdownInterval = setInterval(updateDisplay, 1000);
+    }
+
+    // Claim VIP Key after Payment
+    async function claimVipKey() {
+      if (!currentOrderCode) return;
+      const btn = document.getElementById('claimKeyBtn');
+      btn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Đang kích hoạt...';
+
+      try {
+        const res = await fetch('/api/order?action=claim-key', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ orderCode: currentOrderCode })
+        });
+        const data = await res.json();
+        btn.innerHTML = '<i class="fa-solid fa-check-circle"></i> <span>Tôi Đã Chuyển Khoản ➔ Lấy VIP Key</span>';
+
+        if (data && data.success) {
+          localStorage.setItem('videosaver_vip_key', data.vipKey);
+          closePaymentModal();
+          document.getElementById('displayKeyText').textContent = data.vipKey;
+          document.getElementById('successKeyModal').classList.remove('hidden');
+        } else {
+          alert(data.error || 'Chưa nhận được thanh toán. Vui lòng đợi 10-20s rồi thử lại!');
+        }
+      } catch (err) {
+        btn.innerHTML = '<i class="fa-solid fa-check-circle"></i> <span>Tôi Đã Chuyển Khoản ➔ Lấy VIP Key</span>';
+        alert('Lỗi kết nối. Vui lòng thử lại!');
+      }
+    }
+
+    // Submit / Restore VIP Key from Input
+    async function submitVipKey() {
+      const key = document.getElementById('inputVipKey').value.trim();
+      const statusMsg = document.getElementById('keyStatusMsg');
+      const btn = document.getElementById('submitKeyBtn');
+
+      if (!key) return;
+      btn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Đang kiểm tra...';
+      statusMsg.classList.add('hidden');
+
+      try {
+        const res = await fetch('/api/order?action=verify-key', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ vipKey: key })
+        });
+        const data = await res.json();
+        btn.innerHTML = '<i class="fa-solid fa-unlock"></i> <span>Kích Hoạt Trên Thiết Bị Này</span>';
+
+        if (data && data.valid) {
+          localStorage.setItem('videosaver_vip_key', key);
+          statusMsg.className = 'p-3 rounded-xl text-xs text-center bg-green-500/20 border border-green-500/40 text-green-300 block';
+          statusMsg.textContent = `🎉 Kích hoạt thành công! VIP còn lại: ${data.daysLeft} ngày.`;
+          setTimeout(() => {
+            closeKeyModal();
+            checkStoredVipKey();
+          }, 1500);
+        } else {
+          statusMsg.className = 'p-3 rounded-xl text-xs text-center bg-red-500/20 border border-red-500/40 text-red-300 block';
+          statusMsg.textContent = data.error || 'Mã VIP Key không hợp lệ hoặc đã hết hạn!';
+        }
+      } catch (err) {
+        btn.innerHTML = '<i class="fa-solid fa-unlock"></i> <span>Kích Hoạt Trên Thiết Bị Này</span>';
+        statusMsg.className = 'p-3 rounded-xl text-xs text-center bg-red-500/20 border border-red-500/40 text-red-300 block';
+        statusMsg.textContent = 'Lỗi kết nối máy chủ. Vui lòng thử lại!';
+      }
+    }
+
+    function copyGeneratedKey() {
+      const keyText = document.getElementById('displayKeyText').textContent.trim();
+      navigator.clipboard.writeText(keyText).then(() => {
+        document.getElementById('copyKeyBtnText').textContent = '✓ Đã Sao Chép!';
+        setTimeout(() => {
+          document.getElementById('copyKeyBtnText').textContent = 'Sao Chép Mã Key';
+        }, 2000);
+      });
+    }
+
+    // Video Download Form Handler
+    const form = document.getElementById('downloadForm');
+    const urlInput = document.getElementById('videoUrl');
+    const pasteBtn = document.getElementById('pasteBtn');
+    const loadingState = document.getElementById('loadingState');
+    const errorAlert = document.getElementById('errorAlert');
+    const errorMessage = document.getElementById('errorMessage');
+    const resultCard = document.getElementById('resultCard');
+
+    const resCover = document.getElementById('resCover');
+    const resPlatform = document.getElementById('resPlatform');
+    const resAuthor = document.getElementById('resAuthor');
+    const resTitle = document.getElementById('resTitle');
+    const resDownloadVideo = document.getElementById('resDownloadVideo');
+    const resDownloadAudio = document.getElementById('resDownloadAudio');
+
+    pasteBtn.addEventListener('click', async () => {
+      try {
+        const text = await navigator.clipboard.readText();
+        if (text) {
+          urlInput.value = text.trim();
+          urlInput.focus();
+        }
+      } catch (err) {
+        alert('Vui lòng cấp quyền truy cập khay nhớ tạm để dán link nhanh!');
+      }
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const url = urlInput.value.trim();
+      if (!url) return;
+
+      errorAlert.classList.add('hidden');
+      resultCard.classList.add('hidden');
+      loadingState.classList.remove('hidden');
+
+      // 1. First try TikWM public client-side direct extractor
+      try {
+        const formData = new URLSearchParams();
+        formData.append('url', url);
+        formData.append('hd', '1');
+
+        const response = await fetch('https://www.tikwm.com/api/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+          body: formData
+        });
+
+        const data = await response.json();
+        if (data && data.code === 0 && data.data) {
+          const d = data.data;
+          loadingState.classList.add('hidden');
+
+          resTitle.textContent = d.title || 'Video tải về không logo';
+          resPlatform.textContent = 'TikTok / Douyin (HD)';
+          resAuthor.querySelector('span').textContent = (d.author && (d.author.nickname || d.author.unique_id)) || 'Creator';
+          resCover.src = d.cover || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80';
+          
+          resDownloadVideo.href = d.hdplay || d.play || d.wmplay;
+          
+          if (d.music) {
+            resDownloadAudio.href = d.music;
+            resDownloadAudio.classList.remove('hidden');
+          } else {
+            resDownloadAudio.classList.add('hidden');
+          }
+
+          resultCard.classList.remove('hidden');
+          resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          return;
+        }
+      } catch (clientErr) {}
+
+      // 2. Fallback to API endpoint
+      try {
+        const fallbackRes = await fetch('/api/extract', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ url })
+        });
+
+        const serverData = await fallbackRes.json();
+        loadingState.classList.add('hidden');
+
+        if (serverData && serverData.success) {
+          resTitle.textContent = serverData.title || 'Video tải về không logo';
+          resPlatform.textContent = serverData.platform || 'Social Video';
+          resAuthor.querySelector('span').textContent = serverData.author || 'Creator';
+          resCover.src = serverData.cover || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80';
+          
+          resDownloadVideo.href = serverData.videoUrl;
+          if (serverData.audioUrl) {
+            resDownloadAudio.href = serverData.audioUrl;
+            resDownloadAudio.classList.remove('hidden');
+          } else {
+            resDownloadAudio.classList.add('hidden');
+          }
+
+          resultCard.classList.remove('hidden');
+          resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          return;
+        }
+
+        errorMessage.textContent = (serverData && serverData.error) || 'Không thể bóc tách video từ link này. Vui lòng thử lại!';
+        errorAlert.classList.remove('hidden');
+
+      } catch (finalErr) {
+        loadingState.classList.add('hidden');
+        errorMessage.textContent = 'Không thể tải video từ link này. Vui lòng kiểm tra lại link công khai!';
+        errorAlert.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
