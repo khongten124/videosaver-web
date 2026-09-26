@@ -102,37 +102,40 @@
 <body class="min-h-screen text-slate-100 flex flex-col justify-between selection:bg-blue-500 selection:text-white">
 
   <!-- Header -->
-  <header class="border-b border-white/5 bg-slate-950/40 backdrop-blur-md sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-        <img src="/logo.png" class="w-10 h-10 aspect-square rounded-xl shadow-md object-contain p-0.5 bg-slate-900/80 border border-blue-400/40 flex-shrink-0" alt="VideoSaver Logo">
-        <div>
-          <span class="text-xl font-extrabold tracking-tight text-white flex items-center gap-2">
+  <header class="border-b border-white/5 bg-slate-950/60 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-3 sm:px-4 py-2.5 sm:py-3.5 flex items-center justify-between gap-2">
+      <!-- Brand & Logo -->
+      <a href="/" class="flex items-center gap-2 sm:gap-3 flex-shrink-0 min-w-0 hover:opacity-90 transition-opacity">
+        <img src="/logo.png" class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 aspect-square rounded-lg sm:rounded-xl shadow-md object-contain p-0.5 bg-slate-900/80 border border-blue-400/40 flex-shrink-0" alt="VideoSaver Logo">
+        <div class="min-w-0 flex items-center gap-1.5">
+          <span class="text-base sm:text-lg md:text-xl font-extrabold tracking-tight text-white flex items-center gap-1 truncate">
             Video<span class="text-blue-400">Saver</span>
-            <span class="text-xs bg-blue-500/20 text-blue-400 font-semibold px-2 py-0.5 rounded-full border border-blue-500/30">HD 4K</span>
           </span>
+          <span class="hidden md:inline-block text-[10px] bg-blue-500/20 text-blue-400 font-semibold px-1.5 py-0.5 rounded-full border border-blue-500/30 flex-shrink-0">HD 4K</span>
         </div>
-      </div>
+      </a>
 
       <!-- Header Actions -->
-      <div class="flex items-center gap-2 sm:gap-3">
+      <div class="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
         <!-- Language Switcher Toggle -->
-        <button id="langToggleBtn" onclick="toggleLanguage()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-bold border border-white/15 bg-slate-900/80 text-slate-200 hover:border-blue-400/50 hover:text-white transition-all cursor-pointer shadow-sm">
+        <button id="langToggleBtn" onclick="toggleLanguage()" class="flex items-center gap-1 px-2 py-1.5 sm:px-2.5 sm:py-1.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold border border-white/15 bg-slate-900/90 text-slate-200 hover:border-blue-400/50 hover:text-white transition-all cursor-pointer shadow-sm flex-shrink-0">
           <span id="langFlag" class="flex items-center"><svg class="flag-icon" viewBox="0 0 512 512"><circle cx="256" cy="256" r="256" fill="#da251d"/><path fill="#ff0" d="M256 100l48.2 148.3H460l-126.8 92.2 48.4 148.9L256 397.2 130.4 489.4l48.4-148.9L52 248.3h155.8z"/></svg></span>
           <span id="langText">VI</span>
-          <i class="fa-solid fa-chevron-down text-[9px] text-slate-400"></i>
+          <i class="fa-solid fa-chevron-down text-[8px] sm:text-[9px] text-slate-400"></i>
         </button>
 
         <!-- VIP Key Status / Button -->
-        <button id="vipKeyBtn" onclick="openKeyModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold border border-amber-500/40 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 transition-all cursor-pointer">
-          <i class="fa-solid fa-key"></i>
-          <span id="vipKeyBtnText" data-i18n="header_vip_key">Nhập VIP Key</span>
+        <button id="vipKeyBtn" onclick="openKeyModal()" class="flex items-center gap-1 px-2 py-1.5 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold border border-amber-500/40 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 transition-all cursor-pointer flex-shrink-0">
+          <i class="fa-solid fa-key text-[10px] sm:text-xs"></i>
+          <span id="vipKeyBtnText" data-i18n="header_vip_key" class="hidden xs:inline sm:inline">Nhập VIP Key</span>
+          <span class="inline xs:hidden sm:hidden">VIP</span>
         </button>
 
         <!-- Telegram Bot Link -->
-        <a href="https://t.me/builder1323_bot" target="_blank" class="flex items-center space-x-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-xs px-3.5 py-1.5 rounded-xl shadow-md transition-all transform hover:scale-105">
-          <i class="fa-brands fa-telegram text-sm"></i>
+        <a href="https://t.me/builder1323_bot" target="_blank" class="flex items-center gap-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-[11px] sm:text-xs px-2.5 py-1.5 sm:px-3.5 sm:py-1.5 rounded-lg sm:rounded-xl shadow-md transition-all transform active:scale-95 flex-shrink-0">
+          <i class="fa-brands fa-telegram text-xs sm:text-sm"></i>
           <span class="hidden sm:inline" data-i18n="header_bot">Bot Telegram</span>
+          <span class="sm:hidden">Bot</span>
         </a>
       </div>
     </div>
@@ -142,14 +145,14 @@
   <main class="max-w-4xl mx-auto px-4 py-8 sm:py-12 w-full flex-1 flex flex-col items-center justify-center">
     
     <!-- Title & Badge -->
-    <div class="text-center space-y-3 max-w-2xl">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider">
-        <i class="fa-solid fa-bolt text-yellow-400"></i> <span data-i18n="hero_badge">Bóc tách video không logo siêu tốc</span>
+    <div class="text-center space-y-2.5 sm:space-y-3 max-w-2xl px-1">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[11px] sm:text-xs font-semibold uppercase tracking-wider shadow-sm">
+        <i class="fa-solid fa-bolt text-yellow-400 text-xs"></i> <span data-i18n="hero_badge">Bóc tách video không logo siêu tốc</span>
       </div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-        <span data-i18n="hero_title_prefix">Tải Video</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400" data-i18n="hero_title_highlight">Không Watermark</span> <span data-i18n="hero_title_suffix">Chuẩn HD</span>
+      <h1 class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight break-words">
+        <span data-i18n="hero_title_prefix">Tải Video</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 inline-block" data-i18n="hero_title_highlight">Không Watermark</span> <span data-i18n="hero_title_suffix">Chuẩn HD</span>
       </h1>
-      <p class="text-slate-300 text-sm sm:text-base leading-relaxed" data-i18n="hero_desc">
+      <p class="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-xl mx-auto px-1" data-i18n="hero_desc">
         Công cụ trích xuất video TikTok, Douyin (TikTok TQ), Instagram Reels, Facebook, Kuaishou & YouTube Shorts không dính logo. Miễn phí 100% - Không quảng cáo rác!
       </p>
     </div>
@@ -181,12 +184,12 @@
       </form>
 
       <!-- Paste action -->
-      <div class="mt-2.5 flex items-center justify-between text-xs text-slate-400 px-1">
-        <span class="flex items-center gap-1.5 text-[11px] sm:text-xs">
-          <i class="fa-solid fa-circle-check text-green-400"></i> <span data-i18n="input_badge_hd">Chuẩn Full HD 1080p · Không Watermark</span>
+      <div class="mt-3 flex flex-col xs:flex-row sm:flex-row items-center justify-between gap-2 text-xs text-slate-400 px-1">
+        <span class="flex items-center gap-1.5 text-[11px] sm:text-xs text-center sm:text-left">
+          <i class="fa-solid fa-circle-check text-green-400 text-xs"></i> <span data-i18n="input_badge_hd">Chuẩn Full HD 1080p · Không Watermark</span>
         </span>
-        <button id="pasteBtn" class="hover:text-blue-400 flex items-center gap-1 transition-colors text-[11px] sm:text-xs cursor-pointer">
-          <i class="fa-regular fa-paste"></i> <span data-i18n="btn_paste">Dán từ khay nhớ tạm</span>
+        <button id="pasteBtn" class="hover:text-blue-400 flex items-center gap-1.5 transition-colors text-[11px] sm:text-xs cursor-pointer px-2 py-0.5 rounded-lg bg-white/5 sm:bg-transparent border border-white/10 sm:border-transparent">
+          <i class="fa-regular fa-paste text-xs"></i> <span data-i18n="btn_paste">Dán từ khay nhớ tạm</span>
         </button>
       </div>
     </div>
