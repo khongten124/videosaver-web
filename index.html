@@ -654,7 +654,16 @@
         </div>
       </div>
 
-      <div class="space-y-2">
+      <!-- International Payment: Ko-fi / Apple Pay / PayPal / Card -->
+      <div class="pt-2 border-t border-white/10 space-y-2 text-center">
+        <p class="text-[11px] text-slate-400 font-medium" data-i18n="modal_intl_note">🌍 Khách Quốc tế / International (Apple Pay, PayPal, Card):</p>
+        <a href="https://ko-fi.com/tdha05" target="_blank" class="w-full py-2.5 px-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-extrabold text-xs rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all cursor-pointer">
+          <i class="fa-solid fa-credit-card"></i>
+          <span data-i18n="modal_kofi_btn">Pay  on Ko-fi (Apple Pay / PayPal / Card)</span>
+        </a>
+      </div>
+
+      <div class="space-y-2 pt-1">
         <button onclick="claimVipKey()" id="claimKeyBtn" class="w-full py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-extrabold text-xs sm:text-sm rounded-xl shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-all">
           <i class="fa-solid fa-check-circle"></i>
           <span data-i18n="modal_claim_btn">Tôi Đã Chuyển Khoản ➔ Lấy VIP Key</span>
@@ -830,7 +839,9 @@
         footer_copy: "© 2026 VideoSaver. Tải video không logo siêu tốc & miễn phí 100%.",
         modal_pay_badge: "Thanh Toán VIP 1 Tháng",
         modal_pay_title: "Quét VietQR Tự Động",
-        modal_pay_desc: "Mở app ngân hàng quét mã để nhận mã VIP Key tức thì",
+        modal_pay_desc: "Mở app ngân hàng quét mã hoặc thanh toán quốc tế để nhận VIP Key tức thì",
+        modal_intl_note: "🌍 Khách Quốc tế / International (Apple Pay, PayPal, Visa/Master):",
+        modal_kofi_btn: "Thanh Toán  qua Ko-fi (Apple Pay / PayPal / Thẻ)",
         modal_amount_label: "Số tiền:",
         modal_bank_label: "Ngân hàng:",
         modal_acc_label: "Số tài khoản:",
@@ -932,7 +943,9 @@
         footer_copy: "© 2026 VideoSaver. Ultra-fast & 100% Free No-Watermark Video Downloader.",
         modal_pay_badge: "1-Month VIP Checkout",
         modal_pay_title: "Automatic VietQR Payment",
-        modal_pay_desc: "Scan QR with bank app or crypto to get your VIP Key instantly",
+        modal_pay_desc: "Scan QR with bank app or pay via International Gateway to get VIP Key instantly",
+        modal_intl_note: "🌍 International Users (Apple Pay, Google Pay, PayPal, Credit Card):",
+        modal_kofi_btn: "Pay  on Ko-fi (Apple Pay / PayPal / Card)",
         modal_amount_label: "Amount:",
         modal_bank_label: "Bank:",
         modal_acc_label: "Account No:",
