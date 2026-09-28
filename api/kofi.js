@@ -1,5 +1,6 @@
 const crypto = require('crypto');
 
+const KOFI_VERIFICATION_TOKEN = process.env.KOFI_VERIFICATION_TOKEN || '7b2e9869-d16b-4bea-bf69-97e1d9794f6c';
 const JWT_SECRET = process.env.JWT_SECRET || 'videosaver_vip_secret_key_2026';
 
 function generateVipKey(emailOrId, days = 30) {
@@ -26,7 +27,6 @@ module.exports = async (req, res) => {
   }
 
   try {
-    // Ko-fi sends data as form-urlencoded with a 'data' field containing JSON string
     let payload = req.body;
     if (typeof payload === 'string') {
       try {
@@ -45,10 +45,16 @@ module.exports = async (req, res) => {
 
     console.log("Ko-fi Webhook Payload received:", payload);
 
+    // Verify Ko-fi Verification Token if provided
+    const token = payload.verification_token || payload.kofi_transaction_id;
+    if (KOFI_VERIFICATION_TOKEN && payload.verification_token && payload.verification_token !== KOFI_VERIFICATION_TOKEN) {
+      console.warn("Invalid Ko-fi verification token received:", payload.verification_token);
+      return res.status(401).json({ success: false, error: "Invalid verification token" });
+    }
+
     const email = payload.email || payload.from_name || 'kofi_user';
     const amount = parseFloat(payload.amount || 0);
 
-    // Generate dynamic unique cryptographic key
     const { vipKey, expiresAt } = generateVipKey(email, 30);
     console.log(`✅ Generated Dynamic VIP Key for Ko-fi user (${email}): ${vipKey}`);
 
