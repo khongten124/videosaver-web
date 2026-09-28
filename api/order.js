@@ -2,6 +2,9 @@ const crypto = require('crypto');
 
 const JWT_SECRET = process.env.JWT_SECRET || 'videosaver_vip_secret_key_2026';
 
+// Global in-memory / cache store for paid orders (persists per warm serverless instance, or validated via verified token)
+const verifiedOrders = new Set();
+
 function generateVipKey(orderCode, days = 30) {
   const expiresAt = Date.now() + days * 24 * 60 * 60 * 1000;
   const payload = `${orderCode}:${expiresAt}`;
@@ -99,7 +102,7 @@ module.exports = async (req, res) => {
     return res.status(200).json(result);
   }
 
-  // 3. Action: Claim Key with Order Code
+  // 3. Action: Check Payment Status / Claim Key (Strict SePay Validation - Fixes False Claims)
   if (req.method === "POST" && action === "claim-key") {
     let body = req.body;
     if (typeof body === "string") {
@@ -110,12 +113,24 @@ module.exports = async (req, res) => {
       return res.status(400).json({ success: false, error: 'Mã đơn hàng không hợp lệ' });
     }
 
-    const { vipKey, expiresAt } = generateVipKey(orderCode.toUpperCase(), 30);
+    const cleanCode = orderCode.toUpperCase();
+
+    // Check if order has been verified by SePay webhook
+    if (global.SEPAY_PAID_ORDERS && global.SEPAY_PAID_ORDERS.has(cleanCode)) {
+      const { vipKey, expiresAt } = generateVipKey(cleanCode, 30);
+      return res.status(200).json({
+        success: true,
+        vipKey,
+        expiresAt,
+        message: 'Kích hoạt VIP 30 ngày thành công!'
+      });
+    }
+
+    // If not verified yet by SePay, return waiting status (DO NOT ISSUE FAKE KEYS)
     return res.status(200).json({
-      success: true,
-      vipKey,
-      expiresAt,
-      message: 'Kích hoạt VIP 30 ngày thành công!'
+      success: false,
+      waiting: true,
+      error: 'Hệ thống đang kiểm tra biến động số dư TPBank qua SePay. Nếu bạn vừa chuyển khoản, vui lòng đợi 5-10 giây rồi bấm lại, hoặc liên hệ @builder1323_bot để được hỗ trợ tức thì!'
     });
   }
 
