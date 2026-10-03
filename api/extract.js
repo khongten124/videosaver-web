@@ -91,16 +91,19 @@ async function extractTikWM(cleanUrl) {
   const data = await resp.json();
   if (data && data.code === 0 && data.data) {
     const d = data.data;
+    const isImageSlide = Array.isArray(d.images) && d.images.length > 0;
     return {
       success: true,
       id: d.id || String(Date.now()),
-      platform: "TikTok / Douyin",
-      title: d.title || "Video không logo",
+      platform: isImageSlide ? "TikTok Photo Slide" : "TikTok / Douyin",
+      title: d.title || (isImageSlide ? "Bộ ảnh TikTok HD" : "Video không logo"),
       author: d.author ? (d.author.nickname || d.author.unique_id) : "Creator",
-      videoUrl: d.hdplay || d.play || d.wmplay,
+      videoUrl: isImageSlide ? null : (d.hdplay || d.play || d.wmplay),
       audioUrl: d.music || null,
+      images: isImageSlide ? d.images : [],
+      isImage: isImageSlide,
       musicTitle: d.music_info ? d.music_info.title : (d.title ? `${d.title} (Audio)` : "Nhạc nền"),
-      cover: d.cover,
+      cover: d.cover || (isImageSlide ? d.images[0] : null),
       duration: d.duration || 0
     };
   }
