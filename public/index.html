@@ -1248,6 +1248,36 @@
     const resDownloadVideo = document.getElementById('resDownloadVideo');
     const resDownloadAudio = document.getElementById('resDownloadAudio');
 
+    async function triggerDirectDownload(url, defaultFilename) {
+      if (!url) return;
+      const downloadProxyUrl = `/api/download?url=${encodeURIComponent(url)}&filename=${encodeURIComponent(defaultFilename)}`;
+      
+      // Attempt blob download first for smooth in-page saving
+      try {
+        const res = await fetch(downloadProxyUrl);
+        if (!res.ok) throw new Error("Proxy error");
+        const blob = await res.blob();
+        const blobUrl = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = blobUrl;
+        a.download = defaultFilename;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(blobUrl);
+        document.body.removeChild(a);
+      } catch (e) {
+        // Fallback: direct window download via proxy with Content-Disposition
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = downloadProxyUrl;
+        a.setAttribute('download', defaultFilename);
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+    }
+
     function renderExtractionResult(data) {
       loadingState.classList.add('hidden');
       resTitle.textContent = data.title || (currentLang === 'vi' ? 'Nội dung tải về không logo' : 'Clean Media HD');
@@ -1262,6 +1292,8 @@
       const photoSummary = document.getElementById('photoSummary');
       const resDownloadAudioSlide = document.getElementById('resDownloadAudioSlide');
 
+      window._currentMediaData = data;
+
       if (data.images && data.images.length > 0) {
         // Photo Slide Mode
         resTypeBadge.textContent = `${data.images.length} Ảnh HD`;
@@ -1270,7 +1302,10 @@
         photoSummary.textContent = `${data.images.length} Ảnh HD Không Logo`;
 
         if (data.audioUrl) {
-          resDownloadAudioSlide.href = data.audioUrl;
+          resDownloadAudioSlide.onclick = (e) => {
+            e.preventDefault();
+            triggerDirectDownload(data.audioUrl, `tiktok_audio_${Date.now()}.mp3`);
+          };
           resDownloadAudioSlide.classList.remove('hidden');
         } else {
           resDownloadAudioSlide.classList.add('hidden');
@@ -1279,15 +1314,15 @@
         photoGrid.innerHTML = data.images.map((imgUrl, idx) => `
           <div class="relative group rounded-xl overflow-hidden border border-white/10 bg-slate-900 shadow">
             <img src="${imgUrl}" alt="Photo ${idx + 1}" class="w-full aspect-[9/16] object-cover" />
-            <div class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center gap-1.5 p-2 transition-all">
+            <div class="absolute inset-0 bg-slate-950/60 sm:opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center gap-1.5 p-2 transition-all">
               <span class="text-[11px] font-bold text-white">Ảnh #${idx + 1}</span>
-              <a href="${imgUrl}" target="_blank" download="tiktok_photo_${idx + 1}.jpeg" class="px-2.5 py-1 bg-green-500 hover:bg-green-400 text-slate-950 font-bold text-[10px] rounded-lg shadow flex items-center gap-1 cursor-pointer">
-                <i class="fa-solid fa-download"></i> Tải Ảnh
-              </a>
+              <button onclick="triggerDirectDownload('${imgUrl}', 'tiktok_photo_${idx + 1}.jpeg')" class="px-3 py-1.5 bg-green-500 hover:bg-green-400 text-slate-950 font-extrabold text-xs rounded-lg shadow flex items-center gap-1.5 cursor-pointer transform active:scale-95 transition-all">
+                <i class="fa-solid fa-download"></i> Tải Về Máy
+              </button>
             </div>
-            <a href="${imgUrl}" target="_blank" class="sm:hidden absolute bottom-1.5 right-1.5 px-2 py-0.5 bg-green-500 text-slate-950 font-bold text-[10px] rounded-md shadow flex items-center gap-1">
+            <button onclick="triggerDirectDownload('${imgUrl}', 'tiktok_photo_${idx + 1}.jpeg')" class="sm:hidden absolute bottom-1.5 right-1.5 px-2.5 py-1 bg-green-500 text-slate-950 font-bold text-[11px] rounded-lg shadow flex items-center gap-1 cursor-pointer">
               <i class="fa-solid fa-download"></i> Tải
-            </a>
+            </button>
           </div>
         `).join('');
 
@@ -1297,9 +1332,16 @@
         photoActionGroup.classList.add('hidden');
         videoActionGroup.classList.remove('hidden');
 
-        resDownloadVideo.href = data.videoUrl || '#';
+        resDownloadVideo.onclick = (e) => {
+          e.preventDefault();
+          triggerDirectDownload(data.videoUrl, `videosaver_${Date.now()}.mp4`);
+        };
+
         if (data.audioUrl) {
-          resDownloadAudio.href = data.audioUrl;
+          resDownloadAudio.onclick = (e) => {
+            e.preventDefault();
+            triggerDirectDownload(data.audioUrl, `audio_${Date.now()}.mp3`);
+          };
           resDownloadAudio.classList.remove('hidden');
         } else {
           resDownloadAudio.classList.add('hidden');
