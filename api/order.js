@@ -2,8 +2,10 @@ const crypto = require('crypto');
 
 const JWT_SECRET = process.env.JWT_SECRET || 'videosaver_vip_secret_key_2026';
 
-// Global in-memory / cache store for paid orders (persists per warm serverless instance, or validated via verified token)
-const verifiedOrders = new Set();
+// Global Key State Store: Key -> { devices: [dev1, dev2], lockedUntil: timestamp, violationHistory: [] }
+if (!global.VIP_KEY_REGISTRY) {
+  global.VIP_KEY_REGISTRY = new Map();
+}
 
 function generateVipKey(orderCode, days = 30) {
   const expiresAt = Date.now() + days * 24 * 60 * 60 * 1000;
@@ -16,7 +18,7 @@ function generateVipKey(orderCode, days = 30) {
   };
 }
 
-function verifyVipKey(keyStr) {
+function verifyVipKeyWithDevice(keyStr, deviceId) {
   try {
     if (!keyStr || !keyStr.startsWith('VIP-')) return { valid: false, error: 'Mã VIP Key không đúng định dạng' };
     const parts = keyStr.split('-');
@@ -34,11 +36,52 @@ function verifyVipKey(keyStr) {
     if (isNaN(expiresAt) || Date.now() > expiresAt) {
       return { valid: false, error: 'Mã VIP Key đã hết hạn sử dụng' };
     }
+
+    // ── 2-Device & 72-Hour Anti-Share Freeze Logic ──
+    const now = Date.now();
+    let reg = global.VIP_KEY_REGISTRY.get(keyStr);
+    if (!reg) {
+      reg = { devices: [], lockedUntil: 0 };
+      global.VIP_KEY_REGISTRY.set(keyStr, reg);
+    }
+
+    // Check if key is currently frozen for 72 hours
+    if (reg.lockedUntil && now < reg.lockedUntil) {
+      const hoursRemaining = Math.ceil((reg.lockedUntil - now) / (60 * 60 * 1000));
+      return {
+        valid: false,
+        isLocked: true,
+        lockedUntil: new Date(reg.lockedUntil).toISOString(),
+        error: `Mã VIP Key này đang bị TẠM KHÓA 72 GIỜ (còn ~${hoursRemaining}h) do phát hiện kích hoạt trái phép trên thiết bị thứ 3! Vui lòng không chia sẻ mã key.`
+      };
+    }
+
+    // Process Device Binding
+    if (deviceId) {
+      if (!reg.devices.includes(deviceId)) {
+        if (reg.devices.length < 2) {
+          // Add second device safely
+          reg.devices.push(deviceId);
+        } else {
+          // 3rd Device Detected! Trigger 72-Hour Anti-Share Lockdown!
+          reg.lockedUntil = now + 72 * 60 * 60 * 1000;
+          return {
+            valid: false,
+            isLocked: true,
+            lockedUntil: new Date(reg.lockedUntil).toISOString(),
+            error: 'CẢNH BÁO VI PHẠM BẢN QUYỀN: Phát hiện thiết bị thứ 3 nhập mã key. Hệ thống đã TỰ ĐỘNG KHÓA MÃ VIP 72 GIỜ trên toàn bộ thiết bị để bảo vệ tài khoản chính chủ!'
+          };
+        }
+      }
+    }
     
     return {
       valid: true,
       expiresAt: new Date(expiresAt).toISOString(),
-      daysLeft: Math.ceil((expiresAt - Date.now()) / (24 * 60 * 60 * 1000))
+      daysLeft: Math.ceil((expiresAt - Date.now()) / (24 * 60 * 60 * 1000)),
+      deviceCount: reg.devices.length,
+      maxDevices: 2,
+      tier: 'VIP_MASTER'
     };
   } catch (e) {
     return { valid: false, error: 'Mã VIP Key không hợp lệ hoặc bị lỗi' };
@@ -91,18 +134,18 @@ module.exports = async (req, res) => {
     });
   }
 
-  // 2. Action: Verify / Check VIP Key
+  // 2. Action: Verify / Check VIP Key with Device ID Binding
   if (req.method === "POST" && action === "verify-key") {
     let body = req.body;
     if (typeof body === "string") {
       try { body = JSON.parse(body); } catch(e) {}
     }
-    const { vipKey } = body || {};
-    const result = verifyVipKey(vipKey);
+    const { vipKey, deviceId } = body || {};
+    const result = verifyVipKeyWithDevice(vipKey, deviceId);
     return res.status(200).json(result);
   }
 
-  // 3. Action: Check Payment Status / Claim Key (Strict SePay Validation - Fixes False Claims)
+  // 3. Action: Check Payment Status / Claim Key (Strict SePay Validation)
   if (req.method === "POST" && action === "claim-key") {
     let body = req.body;
     if (typeof body === "string") {
@@ -126,7 +169,6 @@ module.exports = async (req, res) => {
       });
     }
 
-    // If not verified yet by SePay, return waiting status (DO NOT ISSUE FAKE KEYS)
     return res.status(200).json({
       success: false,
       waiting: true,
