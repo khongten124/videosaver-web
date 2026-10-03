@@ -1314,10 +1314,10 @@
         photoSummary.textContent = `${data.images.length} Ảnh ${isVip ? '4K Gốc (Độ Phân Giải Tối Đa)' : 'HD Không Logo'}`;
 
         if (data.audioUrl) {
-          resDownloadAudioSlide.innerHTML = `<i class="fa-solid fa-music"></i> <span>Tải Nhạc Gốc (${isVip ? '320kbps Master' : 'MP3'})</span>`;
+          resDownloadAudioSlide.innerHTML = `<i class="fa-solid fa-music text-purple-400"></i> <span>${isVip ? 'Tải Nhạc Gốc (Studio Master)' : 'Tải Nhạc MP3'}</span>`;
           resDownloadAudioSlide.onclick = (e) => {
             e.preventDefault();
-            triggerDirectDownload(data.masterAudioUrl || data.audioUrl, `tiktok_master_audio_${Date.now()}.mp3`);
+            triggerDirectDownload(data.masterAudioUrl || data.audioUrl, `tiktok_audio_${isVip ? 'master_' : ''}${Date.now()}.mp3`);
           };
           resDownloadAudioSlide.classList.remove('hidden');
         } else {
@@ -1355,10 +1355,10 @@
         };
 
         if (audioTarget) {
-          resDownloadAudio.innerHTML = `<i class="fa-solid fa-music text-purple-400"></i> <span>${isVip ? 'Tách Nhạc Gốc 320kbps Studio' : 'Tách Nhạc MP3 Gốc'}</span>`;
+          resDownloadAudio.innerHTML = `<i class="fa-solid fa-music text-purple-400"></i> <span>${isVip ? 'Tách Nhạc Gốc (Studio Master)' : 'Tách Nhạc MP3 Gốc'}</span>`;
           resDownloadAudio.onclick = (e) => {
             e.preventDefault();
-            triggerDirectDownload(audioTarget, `audio_${isVip ? 'master_320k_' : ''}${Date.now()}.mp3`);
+            triggerDirectDownload(audioTarget, `audio_${isVip ? 'master_' : ''}${Date.now()}.mp3`);
           };
           resDownloadAudio.classList.remove('hidden');
         } else {
